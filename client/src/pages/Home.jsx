@@ -2415,24 +2415,6 @@ const Home = () => {
               >
                 All plans include personalized attention and comprehensive support
               </Typography>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderColor: "#5ebeb6ff",
-                  color: "#5ebeb6ff",
-                  fontWeight: 600,
-                  px: 4,
-                  py: 1,
-                  borderRadius: 2,
-                  "&:hover": {
-                    borderColor: "#5ebeb6ff",
-                    bgcolor: "#5ebeb6ff",
-                    color: "white",
-                  },
-                }}
-              >
-                Compare All Plans
-              </Button>
             </Box>
           </Fade>
         </Container>
