@@ -1,18 +1,21 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+// server/routes/chatRoutes.js
+import express from "express";
 
-dotenv.config();
-const app = express();
-app.use(cors());
-app.use(express.json());
+const router = express.Router();
 
-connectDB();
+// Simple demo chat (no AI)
+router.post("/", async (req, res) => {
+    try {
+        const { message } = req.body;
 
-app.get('/', (req, res) => res.send('THE Counseling Cafe API running'));
+        // Example: static reply
+        const reply = `You said: ${message}`;
 
-app.use('/api/contact', require('./routes/contactRoutes'));
+        res.json({ reply });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Something went wrong" });
+    }
+});
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+export default router;

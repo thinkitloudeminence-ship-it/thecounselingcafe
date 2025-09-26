@@ -1,637 +1,1818 @@
 // import React from 'react';
-// import { Box, Typography, Button, Grid, Card, Chip, List, ListItem, ListItemIcon, ListItemText, useTheme, useMediaQuery } from '@mui/material';
-// import { motion } from 'framer-motion';
-// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-// import LocationOnIcon from '@mui/icons-material/LocationOn';
-// import PersonIcon from '@mui/icons-material/Person';
-// import StarIcon from '@mui/icons-material/Star';
-// import ScheduleIcon from '@mui/icons-material/Schedule';
-// import EventIcon from '@mui/icons-material/Event';
+// import { Box, Typography, Card, Grid, Container, Button, Stack, Paper, Fade, Zoom } from '@mui/material';
+// import heroImage from './images/hero-students.jpg';
 
-
-// export default function Home() {
-//   const theme = useTheme();
-//   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
+// const Home = () => {
 //   return (
-//     <Box sx={{ bgcolor: "#000", color: "#fff", minHeight: "100vh", py: 2, px: 1 }}>
-//       {/* Profile Section */}
-//       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-//         <Box sx={{
-//           bgcolor: '#111',
-//           color: '#fff',
-//           py: { xs: 2, md: 4 },
-//           px: { xs: 1, md: 3 },
-//           borderRadius: 2,
-//           boxShadow: '0 4px 12px rgba(255,255,0,0.2)',
-//           maxWidth: 1000,
-//           mx: 'auto'
-//         }}>
-//           {/* Profile Card */}
-//           <Card sx={{
-//             p: { xs: 2, md: 3 },
-//             mb: 3,
-//             border: '1px solid #FFD700',
-//             bgcolor: "#000",
-//             color: "#fff",
-//             overflow: 'visible'
-//           }}>
-//             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', mb: 2 }}>
-//               {/* Profile Image */}
-//               <Box
-//                 component="img"
-//                 src={arpanaJainImage}
-//                 alt="Arpana Jain - Career Counselor"
-//                 sx={{
-//                   width: { xs: 80, md: 100 },
-//                   height: { xs: 80, md: 100 },
-//                   borderRadius: '50%',
-//                   objectFit: 'cover',
-//                   border: '2px solid #FFD700',
-//                   mr: { md: 3 },
-//                   mb: { xs: 1, md: 0 }
-//                 }}
-//                 onError={(e) => {
-//                   e.target.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80';
-//                 }}
-//               />
-
-//               <Box sx={{ textAlign: { xs: 'center', md: 'left' }, mt: { xs: 1, md: 0 } }}>
-//                 <Typography variant="h5" sx={{
-//                   fontWeight: 700,
-//                   color: "#FFD700",
-//                   fontSize: { xs: '1.4rem', md: '1.5rem' }
-//                 }}>
-//                   Arpana Jain
-//                 </Typography>
-//                 <Box sx={{
-//                   display: 'flex',
-//                   alignItems: 'center',
-//                   justifyContent: { xs: 'center', md: 'flex-start' },
-//                   mt: 0.5
-//                 }}>
-//                   {[...Array(5)].map((_, i) => (
-//                     <StarIcon key={i} sx={{ color: '#FFD700', fontSize: { xs: 18, md: 20 } }} />
-//                   ))}
-//                 </Box>
-//                 <Typography variant="body2" sx={{ color: '#ccc', mt: 0.5, fontSize: { xs: '0.8rem', md: '0.875rem' } }}>
-//                   <LocationOnIcon sx={{ fontSize: 14, verticalAlign: 'text-bottom', color: "#FFD700" }} />
-//                   381 Reviews
-//                 </Typography>
-//                 <Typography variant="body1" sx={{ mt: 1, fontSize: { xs: '0.9rem', md: '1rem' } }}>
-//                   Certified Career Counselor in Indore and NLP Practitioner
-//                 </Typography>
-//               </Box>
-//             </Box>
-
-//             {/* Location + Audience */}
-//             <Grid container spacing={1} sx={{ mt: 1 }}>
-//               <Grid item xs={12} sm={6}>
-//                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-//                   <LocationOnIcon sx={{ fontSize: { xs: 16, md: 18 }, mr: 1, color: '#FFD700' }} />
-//                   <Typography variant="body2" sx={{ fontSize: { xs: '0.8rem', md: '0.875rem' } }}>
-//                     <Box component="span" sx={{ fontWeight: 600 }}>Indore | Ujjain | Dewas</Box>
+//     <Box sx={{ width: "100%", overflow: "hidden" }}>
+//       {/* Hero Section - Enhanced Red Theme */}
+//       <Box sx={{ 
+//         bgcolor: "#9e5349ff", 
+//         py: 8,
+//         background: "linear-gradient(135deg, #9e5349ff 0%, #7a3a32 100%)",
+//         position: "relative",
+//         overflow: "hidden",
+//         "&::before": {
+//           content: '""',
+//           position: "absolute",
+//           top: 0,
+//           left: 0,
+//           right: 0,
+//           bottom: 0,
+//           background: "radial-gradient(circle at 20% 80%, rgba(248, 232, 0, 0.15) 0%, transparent 50%)",
+//         }
+//       }}>
+//         <Container maxWidth="lg">
+//           <Grid container spacing={6} alignItems="center">
+//             {/* Left Content */}
+//             <Grid item xs={12} md={6}>
+//               <Fade in={true} timeout={1000}>
+//                 <Box>
+//                   <Typography
+//                     variant="h3"
+//                     sx={{
+//                       fontWeight: 800,
+//                       mb: 3,
+//                       fontSize: { xs: "2.2rem", md: "3.2rem" },
+//                       color: "#ffffff",
+//                       lineHeight: 1.2,
+//                       textShadow: "0 2px 10px rgba(0,0,0,0.3)",
+//                     }}
+//                   >
+//                     Discover Your <span style={{ color: "#f8e800ff" }}>Potential</span> <br />
+//                     Design Your <span style={{ color: "#1be700ff" }}>Career</span>
 //                   </Typography>
-//                 </Box>
-//               </Grid>
-//               <Grid item xs={12} sm={6}>
-//                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-//                   <PersonIcon sx={{ fontSize: { xs: 16, md: 18 }, mr: 1, color: '#FFD700' }} />
-//                   <Typography variant="body2" sx={{ fontSize: { xs: '0.8rem', md: '0.875rem' } }}>
-//                     <Box component="span" sx={{ fontWeight: 600 }}>Professionals | Students</Box>
+
+//                   <Typography
+//                     variant="h6"
+//                     sx={{
+//                       mb: 4,
+//                       color: "rgba(255,255,255,0.9)",
+//                       fontSize: "1.1rem",
+//                       lineHeight: 1.7,
+//                       fontWeight: 400,
+//                       background: "rgba(0,0,0,0.2)",
+//                       p: 2,
+//                       borderRadius: 2,
+//                       borderLeft: "4px solid #f8e800ff"
+//                     }}
+//                   >
+//                     Navigate the competitive world with strategic career planning. Our certified counselors and AI technology provide the edge you need for success.
 //                   </Typography>
+
+//                   {/* Features List */}
+//                   <Box sx={{ mb: 4 }}>
+//                     {["Expert Career Counselors", "Certified Professionals", "Comprehensive Career Tests"].map((feature, index) => (
+//                       <Box key={index} sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+//                         <Box sx={{ 
+//                           width: 8, 
+//                           height: 8, 
+//                           bgcolor: "#f8e800ff", 
+//                           borderRadius: "50%", 
+//                           mr: 2,
+//                           boxShadow: "0 0 10px #f8e800ff"
+//                         }} />
+//                         <Typography variant="body1" sx={{ fontWeight: 600, color: "#ffffff", fontSize: "1rem" }}>
+//                           {feature}
+//                         </Typography>
+//                       </Box>
+//                     ))}
+//                   </Box>
+
+//                   {/* Buttons */}
+//                   <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mb: 6 }}>
+//                     <Button
+//                       variant="contained"
+//                       sx={{
+//                         bgcolor: "#f8e800ff",
+//                         color: "black",
+//                         fontWeight: 800,
+//                         px: 4,
+//                         py: 1.5,
+//                         borderRadius: 3,
+//                         fontSize: "1rem",
+//                         textTransform: 'none',
+//                         boxShadow: "0 4px 15px rgba(248, 232, 0, 0.4)",
+//                         transition: "all 0.3s ease",
+//                         "&:hover": {
+//                           bgcolor: "#1be700ff",
+//                           transform: "translateY(-3px)",
+//                           boxShadow: "0 6px 20px rgba(27, 231, 0, 0.5)",
+//                         },
+//                       }}
+//                     >
+//                       PSYCHOMETRIC TEST
+//                     </Button>
+//                     <Button
+//                       variant="outlined"
+//                       sx={{
+//                         borderColor: "#f8e800ff",
+//                         color: "#f8e800ff",
+//                         fontWeight: 700,
+//                         px: 4,
+//                         py: 1.5,
+//                         borderRadius: 3,
+//                         fontSize: "1rem",
+//                         textTransform: 'none',
+//                         "&:hover": {
+//                           borderColor: "#1be700ff",
+//                           color: "#1be700ff",
+//                           bgcolor: "rgba(27, 231, 0, 0.1)",
+//                           transform: "translateY(-3px)",
+//                         },
+//                       }}
+//                     >
+//                       Schedule Consultation
+//                     </Button>
+//                   </Stack>
+
+//                   {/* Stats */}
+//                   <Grid container spacing={4} sx={{ textAlign: "center" }}>
+//                     {[
+//                       { value: "10000+", label: "Students Guided" },
+//                       { value: "99%", label: "Success Rate" },
+//                       { value: "10+", label: "Years Experience" }
+//                     ].map((stat, index) => (
+//                       <Grid item xs={4} key={index}>
+//                         <Typography variant="h4" sx={{ 
+//                           fontWeight: 900, 
+//                           color: "#10e63eff", 
+//                           mb: 1, 
+//                           fontSize: "2.5rem",
+//                           textShadow: "0 0 10px rgba(16, 230, 62, 0.5)"
+//                         }}>
+//                           {stat.value}
+//                         </Typography>
+//                         <Typography variant="body2" sx={{ 
+//                           color: "#ffffff", 
+//                           fontWeight: 600, 
+//                           fontSize: "0.9rem",
+//                           opacity: 0.9
+//                         }}>
+//                           {stat.label}
+//                         </Typography>
+//                       </Grid>
+//                     ))}
+//                   </Grid>
 //                 </Box>
-//               </Grid>
+//               </Fade>
 //             </Grid>
 
-//             {/* Experience and Sessions */}
-//             <Box sx={{
-//               display: 'flex',
-//               flexWrap: 'wrap',
-//               gap: 1,
-//               my: 2,
-//               justifyContent: { xs: 'center', md: 'flex-start' }
-//             }}>
-//               <Chip
-//                 icon={<EventIcon sx={{ color: "#FFD700 !important", fontSize: { xs: 16, md: 20 } }} />}
-//                 label="Experience: 15 yrs"
-//                 variant="outlined"
-//                 sx={{
-//                   fontWeight: 600,
-//                   px: 1,
-//                   borderColor: "#FFD700",
-//                   color: "#FFD700",
-//                   fontSize: { xs: '0.7rem', md: '0.8rem' },
-//                   height: { xs: 28, md: 32 }
-//                 }}
-//               />
-//               <Chip
-//                 icon={<PersonIcon sx={{ color: "#FFD700 !important", fontSize: { xs: 16, md: 20 } }} />}
-//                 label="1441 Sessions"
-//                 variant="outlined"
-//                 sx={{
-//                   fontWeight: 600,
-//                   px: 1,
-//                   borderColor: "#FFD700",
-//                   color: "#FFD700",
-//                   fontSize: { xs: '0.7rem', md: '0.8rem' },
-//                   height: { xs: 28, md: 32 }
-//                 }}
-//               />
-//             </Box>
+//             {/* Right Image */}
+//             <Grid item xs={12} md={6}>
+//               <Zoom in={true} timeout={1000} style={{ transitionDelay: '300ms' }}>
+//                 <Box
+//                   sx={{
+//                     width: "100%",
+//                     height: { xs: 400, md: 500 },
+//                     borderRadius: 4,
+//                     overflow: "hidden",
+//                     boxShadow: "0 20px 40px rgba(238, 234, 10, 0.5), 0 0 100px rgba(248, 232, 0, 0.2)",
+//                     backgroundImage: `url(${heroImage})`,
+//                     backgroundSize: "cover",
+//                     backgroundPosition: "center",
+//                     position: "relative",
+//                     "&::before": {
+//                       content: '""',
+//                       position: "absolute",
+//                       top: 0,
+//                       left: 0,
+//                       right: 0,
+//                       bottom: 0,
+//                       background: "linear-gradient(45deg, rgba(158, 83, 73, 0.2) 0%, rgba(248, 232, 0, 0.1) 100%)",
+//                       zIndex: 1,
+//                     }
+//                   }}
+//                 />
+//               </Zoom>
+//             </Grid>
+//           </Grid>
+//         </Container>
+//       </Box>
 
-//             {/* Availability */}
-//             <Box sx={{
-//               mb: 2,
-//               p: { xs: 1.5, md: 2 },
-//               bgcolor: '#111',
-//               borderRadius: 1
-//             }}>
-//               <Typography variant="body1" sx={{
-//                 fontWeight: 600,
-//                 display: 'flex',
-//                 alignItems: 'center',
-//                 fontSize: { xs: '0.85rem', md: '1rem' }
-//               }}>
-//                 <ScheduleIcon sx={{ mr: 1, fontSize: { xs: 18, md: 20 }, color: "#FFD700" }} />
-//                 Available On: Wednesday, 9:00 AM to 6:00 PM
-//                 <Box component="span" sx={{ color: '#FFD700', ml: 1, fontWeight: 500 }}>
-//                   See More ➤
-//                 </Box>
-//               </Typography>
-//             </Box>
-
-//             {/* Services List */}
-//             <List sx={{ mb: 2, py: 0 }}>
-//               {[
-//                 "Mottivational Session",
-//                 "1 Hour Counselling Duration",
-//                 "6 Month Post Counselling Support",
-//                 "College Details",
-//                 "Exam Details",
-//                 "Behavioral Counselling"
-//               ].map((text, index) => (
-//                 <ListItem key={index} sx={{ px: 0, py: 0.25 }}>
-//                   <ListItemIcon sx={{ minWidth: 28 }}>
-//                     <CheckCircleIcon sx={{ color: '#FFD700', fontSize: { xs: 18, md: 20 } }} />
-//                   </ListItemIcon>
-//                   <ListItemText
-//                     primary={text}
-//                     sx={{
-//                       color: "#fff",
-//                       '& .MuiTypography-root': {
-//                         fontSize: { xs: '0.8rem', md: '0.875rem' }
-//                       }
-//                     }}
-//                   />
-//                 </ListItem>
-//               ))}
-//             </List>
-
-//             {/* Book Appointment Button */}
-//             <Button
-//               variant="contained"
-//               fullWidth
+//       {/* Services Section - Enhanced Theme */}
+//       <Box sx={{ 
+//         py: 8, 
+//         bgcolor: "#5ebeb6ff",
+//         background: "linear-gradient(135deg, #5ebeb6ff 0%, #4a9c96 100%)",
+//         position: "relative",
+//         "&::before": {
+//           content: '""',
+//           position: "absolute",
+//           top: 0,
+//           left: 0,
+//           right: 0,
+//           height: "4px",
+//           background: "linear-gradient(90deg, #f3ad17ff, #1be700ff, #f8e800ff)",
+//         }
+//       }}>
+//         <Container maxWidth="lg">
+//           <Fade in={true} timeout={800}>
+//             <Typography
+//               variant="h4"
+//               align="center"
 //               sx={{
-//                 py: { xs: 1, md: 1.5 },
-//                 bgcolor: '#FFD700',
-//                 color: '#000',
-//                 fontWeight: 600,
-//                 fontSize: { xs: '0.9rem', md: '1.1rem' },
-//                 ':hover': { bgcolor: '#e6c200' }
+//                 fontWeight: 800,
+//                 mb: 6,
+//                 fontSize: { xs: "1.8rem", md: "2.8rem" },
+//                 color: "#f3ad17ff",
+//                 textShadow: "0 2px 4px rgba(0,0,0,0.2)",
+//                 position: "relative",
+//                 display: "inline-block",
+//                 left: "50%",
+//                 transform: "translateX(-50%)",
+//                 "&::after": {
+//                   content: '""',
+//                   position: "absolute",
+//                   bottom: -10,
+//                   left: "20%",
+//                   width: "60%",
+//                   height: "4px",
+//                   background: "linear-gradient(90deg, transparent, #f3ad17ff, transparent)",
+//                   borderRadius: 2,
+//                 }
 //               }}
 //             >
-//               Book Appointment
-//             </Button>
-//           </Card>
-//         </Box>
-//       </motion.div>
+//               Let's Turn Your Potential Into A Powerful Career
+//             </Typography>
+//           </Fade>
 
-//       Services grid
-//       <Grid container spacing={2} sx={{ mt: 3 }}>
-//         <Grid item xs={12} md={4}>
-//           <Box sx={{ p: 2, border: '1px solid #FFD700', borderRadius: 2, bgcolor: "#111", color: "#FFD700" }}>
-//             <Typography variant="h6" sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>Career Test</Typography>
-//             <Typography variant="body2" sx={{ mt: 1, color: "#fff", fontSize: { xs: '0.8rem', md: '0.875rem' } }}>Discover strengths & interests.</Typography>
-//           </Box>
-//         </Grid>
-//         <Grid item xs={12} md={4}>
-//           <Box sx={{ p: 2, border: '1px solid #FFD700', borderRadius: 2, bgcolor: "#111", color: "#FFD700" }}>
-//             <Typography variant="h6" sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>Student Counselling</Typography>
-//             <Typography variant="body2" sx={{ mt: 1, color: "#fff", fontSize: { xs: '0.8rem', md: '0.875rem' } }}>One-on-one mentoring.</Typography>
-//           </Box>
-//         </Grid>
-//         <Grid item xs={12} md={4}>
-//           <Box sx={{ p: 2, border: '1px solid #FFD700', borderRadius: 2, bgcolor: "#111", color: "#FFD700" }}>
-//             <Typography variant="h6" sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>Parent Guidance</Typography>
-//             <Typography variant="body2" sx={{ mt: 1, color: "#fff", fontSize: { xs: '0.8rem', md: '0.875rem' } }}>Support for families.</Typography>
-//           </Box>
-//         </Grid>
-//       </Grid>
+//           <Grid container spacing={4} justifyContent="center">
+//             {[
+//               {
+//                 title: "Face To Face",
+//                 subtitle: "Offline Counseling",
+//                 bgImage: "url('https://media.istockphoto.com/id/1320034911/vector/patient-with-psychologist.jpg?s=1024x1024&w=is&k=20&c=Km4sTsT5y63rJiFgFl6NmPW4J2KzQK8AJec5KKuaXSA=')",
+//                 color: "#4CAF50"
+//               },
+//               {
+//                 title: "Online Counselling",
+//                 subtitle: "Virtual Sessions",
+//                 bgImage: "url('https://media.istockphoto.com/id/1257527796/vector/sad-man-making-video-call-with-female-psychologist-by-computer.jpg?s=1024x1024&w=is&k=20&c=ycgk78JXX2bSwzP9Hdr4W1itnlydLFF0Dgj2q2_7f4Y=')",
+//                 color: "#2196F3"
+//               },
+//               {
+//                 title: "Career Assessment",
+//                 subtitle: "(Discover Yourself)",
+//                 bgImage: "url('https://media.istockphoto.com/id/1036557512/vector/hands-with-pen-fill-survey-or-exam-forms.jpg?s=1024x1024&w=is&k=20&c=hmoG8_dmkbsCteCmM4aOR-Hf3Vp9U3D0Eq0VAHbHW08=')",
+//                 color: "#FF9800"
+//               },
+//               {
+//                 title: "College Counselling",
+//                 subtitle: " (Domestic & Abroad)",
+//                 bgImage: "url('https://media.istockphoto.com/id/1288538088/vector/college-students-campus-life.jpg?s=1024x1024&w=is&k=20&c=ZQv0z7V7w7Q6Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=')",
+//                 color: "#00b3c0ff"
+//               },
+//             ].map((card, index) => (
+//               <Grid item xs={12} sm={6} md={3} key={index}>
+//                 <Zoom in={true} timeout={800} style={{ transitionDelay: `${index * 200}ms` }}>
+//                   <Card
+//                     sx={{
+//                       height: { xs: 250, md: 320 },
+//                       backgroundImage: card.bgImage,
+//                       backgroundSize: "cover",
+//                       backgroundPosition: "center",
+//                       borderRadius: 4,
+//                       position: "relative",
+//                       overflow: "hidden",
+//                       boxShadow: `0 8px 25px ${card.color}40, 0 0 0 1px rgba(255,255,255,0.1)`,
+//                       transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+//                       cursor: "pointer",
+//                       "&:hover": {
+//                         transform: "translateY(-10px) scale(1.02)",
+//                         boxShadow: `0 20px 40px ${card.color}60, 0 0 30px ${card.color}30`,
+//                         "& .service-content": {
+//                           background: "rgba(255, 255, 255, 0.95)",
+//                           transform: "translateY(0)",
+//                         }
+//                       },
+//                       display: "flex",
+//                       alignItems: "flex-end",
+//                     }}
+//                   >
+//                     <Box
+//                       sx={{
+//                         position: "absolute",
+//                         top: 0,
+//                         left: 0,
+//                         right: 0,
+//                         bottom: 0,
+//                         background: `linear-gradient(to top, ${card.color}DD, ${card.color}40)`,
+//                         zIndex: 1,
+//                       }}
+//                     />
+//                     <Box
+//                       className="service-content"
+//                       sx={{
+//                         position: "relative",
+//                         zIndex: 2,
+//                         width: "100%",
+//                         p: { xs: 2, md: 3 },
+//                         background: "rgba(255, 255, 255, 0.85)",
+//                         backdropFilter: "blur(10px)",
+//                         borderRadius: "0 0 16px 16px",
+//                         transition: "all 0.3s ease",
+//                         transform: "translateY(5px)",
+//                       }}
+//                     >
+//                       <Typography
+//                         variant="h5"
+//                         sx={{
+//                           fontWeight: 800,
+//                           mb: 1,
+//                           fontSize: { xs: "1.3rem", md: "1.5rem" },
+//                           color: card.color,
+//                           display: "inline-block",
+//                           textShadow: "0 1px 2px rgba(0,0,0,0.1)",
+//                         }}
+//                       >
+//                         {card.title}
+//                       </Typography>
+//                       <Typography
+//                         variant="body1"
+//                         sx={{
+//                           fontWeight: 600,
+//                           fontSize: { xs: "0.9rem", md: "1rem" },
+//                           color: "#333",
+//                           opacity: 0.9,
+//                         }}
+//                       >
+//                         {card.subtitle}
+//                       </Typography>
+//                     </Box>
+//                   </Card>
+//                 </Zoom>
+//               </Grid>
+//             ))}
+//           </Grid>
+
+//           {/* CTA Section */}
+//           <Fade in={true} timeout={1000} style={{ transitionDelay: '800ms' }}>
+//             <Box sx={{ textAlign: "center", mt: 8 }}>
+//               <Typography variant="h5" sx={{ 
+//                 fontWeight: 700, 
+//                 mb: 3, 
+//                 color: "#fff",
+//                 textShadow: "0 2px 4px rgba(0,0,0,0.3)"
+//               }}>
+//                 Ready to Start Your Journey?
+//               </Typography>
+//               <Button
+//                 variant="contained"
+//                 sx={{
+//                   bgcolor: "#f3ad17ff",
+//                   color: "black",
+//                   fontWeight: 800,
+//                   px: 6,
+//                   py: 1.5,
+//                   borderRadius: 3,
+//                   fontSize: "1.1rem",
+//                   textTransform: 'none',
+//                   boxShadow: "0 4px 15px rgba(243, 173, 23, 0.4)",
+//                   "&:hover": {
+//                     bgcolor: "#f8e800ff",
+//                     transform: "translateY(-2px)",
+//                     boxShadow: "0 6px 20px rgba(248, 232, 0, 0.5)",
+//                   },
+//                   transition: "all 0.3s ease",
+//                 }}
+//               >
+//                 Get Started Today
+//               </Button>
+//             </Box>
+//           </Fade>
+//         </Container>
+//       </Box>
 //     </Box>
 //   );
-// }
+// };
+
+// export default Home;
+
+
+// import React from 'react';
+// import { Box, Typography, Card, Grid, Container, Button, Stack, Paper, Fade, Zoom } from '@mui/material';
+// import heroImage from './images/hero-students.jpg';
+
+// const Home = () => {
+//   return (
+//     <Box sx={{ width: "100%", overflow: "hidden" }}>
+//       {/* Hero Section - Enhanced Red Theme */}
+//       <Box sx={{ 
+//         bgcolor: "#9e5349ff", 
+//         py: 8,
+//         background: "linear-gradient(135deg, #9e5349ff 0%, #7a3a32 100%)",
+//         position: "relative",
+//         overflow: "hidden",
+//         "&::before": {
+//           content: '""',
+//           position: "absolute",
+//           top: 0,
+//           left: 0,
+//           right: 0,
+//           bottom: 0,
+//           background: "radial-gradient(circle at 20% 80%, rgba(248, 232, 0, 0.15) 0%, transparent 50%)",
+//         }
+//       }}>
+//         <Container maxWidth="lg">
+//           <Grid container spacing={6} alignItems="center">
+//             {/* Left Content */}
+//             <Grid item xs={12} md={6}>
+//               <Fade in={true} timeout={1000}>
+//                 <Box>
+//                   <Typography
+//                     variant="h3"
+//                     sx={{
+//                       fontWeight: 800,
+//                       mb: 3,
+//                       fontSize: { xs: "2.2rem", md: "3.2rem" },
+//                       color: "#ffffff",
+//                       lineHeight: 1.1,
+//                       textShadow: "0 2px 10px rgba(0,0,0,0.3)",
+//                     }}
+//                   >
+//                     Discover Your <span style={{ color: "#f8e800ff" }}>Potential</span> <br />
+//                     Design Your <span style={{ color: "#1be700ff" }}>Career</span>
+//                   </Typography>
+
+//                   <Typography
+//                     variant="h6"
+//                     sx={{
+//                       mb: 4,
+//                       color: "rgba(255,255,255,0.9)",
+//                       fontSize: "1.2rem",
+//                       lineHeight: 1.7,
+//                       fontWeight: 400,
+//                       background: "rgba(0,0,0,0.2)",
+//                       p: 2,
+//                       borderRadius: 2,
+//                       borderLeft: "4px solid #f8e800ff"
+//                     }}
+//                   >
+//                     Navigate the competitive world with strategic career planning. Our certified counselors and AI technology provide the edge you need for success.
+//                   </Typography>
+
+//                   {/* Features List */}
+//                   <Box sx={{ mb: 4 }}>
+//                     {["Expert Career Counselors", "Certified Professionals", "Comprehensive Career Tests"].map((feature, index) => (
+//                       <Box key={index} sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+//                         <Box sx={{
+//                           width: 8,
+//                           height: 8,
+//                           bgcolor: "#f8e800ff",
+//                           borderRadius: "50%",
+//                           mr: 2,
+//                           boxShadow: "0 0 10px #f8e800ff"
+//                         }} />
+//                         <Typography variant="body1" sx={{ fontWeight: 600, color: "#ffffff", fontSize: "1.1rem" }}>
+//                           {feature}
+//                         </Typography>
+//                       </Box>
+//                     ))}
+//                   </Box>
+
+//                   {/* Buttons */}
+//                   <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mb: 6 }}>
+//                     <Zoom in={true} timeout={800} style={{ transitionDelay: '200ms' }}>
+//                       <Button
+//                         variant="contained"
+//                         sx={{
+//                           bgcolor: "#f8e800ff",
+//                           color: "black",
+//                           fontWeight: 800,
+//                           px: 5,
+//                           py: 1.8,
+//                           borderRadius: 3,
+//                           fontSize: "1.1rem",
+//                           textTransform: 'none',
+//                           boxShadow: "0 8px 20px rgba(248, 232, 0, 0.4)",
+//                           transition: "all 0.3s ease",
+//                           "&:hover": {
+//                             bgcolor: "#1be700ff",
+//                             transform: "translateY(-3px)",
+//                             boxShadow: "0 12px 25px rgba(27, 231, 0, 0.5)",
+//                           },
+//                         }}
+//                       >
+//                         🧠 PSYCHOMETRIC TEST
+//                       </Button>
+//                     </Zoom>
+//                     <Zoom in={true} timeout={800} style={{ transitionDelay: '400ms' }}>
+//                       <Button
+//                         variant="outlined"
+//                         sx={{
+//                           border: "2px solid #f8e800ff",
+//                           color: "#f8e800ff",
+//                           fontWeight: 800,
+//                           px: 5,
+//                           py: 1.8,
+//                           borderRadius: 3,
+//                           fontSize: "1.1rem",
+//                           textTransform: 'none',
+//                           background: "rgba(248, 232, 0, 0.1)",
+//                           transition: "all 0.3s ease",
+//                           "&:hover": {
+//                             bgcolor: "#f8e800ff",
+//                             color: "black",
+//                             border: "2px solid #f8e800ff",
+//                             transform: "translateY(-3px)",
+//                             boxShadow: "0 8px 20px rgba(248, 232, 0, 0.4)",
+//                           },
+//                         }}
+//                       >
+//                         📅 Schedule Consultation
+//                       </Button>
+//                     </Zoom>
+//                   </Stack>
+
+//                   {/* Stats */}
+//                   <Grid container spacing={4} sx={{ textAlign: "center" }}>
+//                     {[
+//                       { number: "10000+", label: "Students Guided" },
+//                       { number: "99%", label: "Success Rate" },
+//                       { number: "10+", label: "Years Experience" }
+//                     ].map((stat, index) => (
+//                       <Grid item xs={4} key={index}>
+//                         <Fade in={true} timeout={1000} style={{ transitionDelay: `${index * 200}ms` }}>
+//                           <Box>
+//                             <Typography variant="h4" sx={{ 
+//                               fontWeight: 900, 
+//                               color: "#10e63eff", 
+//                               mb: 1, 
+//                               fontSize: "2.5rem",
+//                               textShadow: "0 2px 8px rgba(16, 230, 62, 0.4)"
+//                             }}>
+//                               {stat.number}
+//                             </Typography>
+//                             <Typography variant="body2" sx={{ 
+//                               color: "#ffffff", 
+//                               fontWeight: 600, 
+//                               fontSize: "0.9rem",
+//                               background: "rgba(255,255,255,0.1)",
+//                               p: 0.5,
+//                               borderRadius: 1
+//                             }}>
+//                               {stat.label}
+//                             </Typography>
+//                           </Box>
+//                         </Fade>
+//                       </Grid>
+//                     ))}
+//                   </Grid>
+//                 </Box>
+//               </Fade>
+//             </Grid>
+
+//             {/* Right Image */}
+//             <Grid item xs={12} md={6}>
+//               <Zoom in={true} timeout={1000}>
+//                 <Box
+//                   sx={{
+//                     width: "100%",
+//                     height: { xs: 400, md: 550 },
+//                     borderRadius: 4,
+//                     overflow: "hidden",
+//                     boxShadow: "0 25px 50px rgba(238, 234, 10, 0.3)",
+//                     backgroundImage: `url(${heroImage})`,
+//                     backgroundSize: "cover",
+//                     backgroundPosition: "center",
+//                     position: "relative",
+//                     "&::before": {
+//                       content: '""',
+//                       position: "absolute",
+//                       top: 0,
+//                       left: 0,
+//                       right: 0,
+//                       bottom: 0,
+//                       background: "linear-gradient(45deg, rgba(158, 83, 73, 0.2) 0%, rgba(248, 232, 0, 0.1) 100%)",
+//                       zIndex: 1,
+//                     }
+//                   }}
+//                 />
+//               </Zoom>
+//             </Grid>
+//           </Grid>
+//         </Container>
+//       </Box>
+
+//       {/* Services Section - Enhanced Theme */}
+//       <Box sx={{ 
+//         py: 8, 
+//         bgcolor: "#5ebeb6ff",
+//         background: "linear-gradient(135deg, #5ebeb6ff 0%, #4a9c94 100%)",
+//         position: "relative",
+//         overflow: "hidden",
+//         "&::before": {
+//           content: '""',
+//           position: "absolute",
+//           top: -50,
+//           right: -50,
+//           width: 200,
+//           height: 200,
+//           background: "radial-gradient(circle, rgba(243, 173, 23, 0.2) 0%, transparent 70%)",
+//           borderRadius: "50%",
+//         }
+//       }}>
+//         <Container maxWidth="lg">
+//           <Fade in={true} timeout={800}>
+//             <Typography
+//               variant="h4"
+//               align="center"
+//               sx={{
+//                 fontWeight: 800,
+//                 mb: 6,
+//                 fontSize: { xs: "1.8rem", md: "2.8rem" },
+//                 color: "#f3ad17ff",
+//                 textShadow: "0 2px 8px rgba(243, 173, 23, 0.3)",
+//                 position: "relative",
+//                 "&::after": {
+//                   content: '""',
+//                   position: "absolute",
+//                   bottom: -10,
+//                   left: "50%",
+//                   transform: "translateX(-50%)",
+//                   width: 100,
+//                   height: 4,
+//                   background: "linear-gradient(90deg, transparent, #f3ad17ff, transparent)",
+//                   borderRadius: 2,
+//                 }
+//               }}
+//             >
+//               Let's Turn Your Potential Into A Powerful Career
+//             </Typography>
+//           </Fade>
+
+//           <Grid container spacing={4} justifyContent="center">
+//             {[
+//               {
+//                 title: "Face To Face",
+//                 subtitle: "Offline Counseling",
+//                 bgImage: "url('https://media.istockphoto.com/id/1320034911/vector/patient-with-psychologist.jpg?s=1024x1024&w=is&k=20&c=Km4sTsT5y63rJiFgFl6NmPW4J2KzQK8AJec5KKuaXSA=')",
+//                 color: "#4CAF50",
+//                 icon: "👥"
+//               },
+//               {
+//                 title: "Online Counselling",
+//                 subtitle: "Virtual Sessions",
+//                 bgImage: "url('https://media.istockphoto.com/id/1257527796/vector/sad-man-making-video-call-with-female-psychologist-by-computer.jpg?s=1024x1024&w=is&k=20&c=ycgk78JXX2bSwzP9Hdr4W1itnlydLFF0Dgj2q2_7f4Y=')",
+//                 color: "#2196F3",
+//                 icon: "💻"
+//               },
+//               {
+//                 title: "Career Assessment",
+//                 subtitle: "(Discover Yourself)",
+//                 bgImage: "url('https://media.istockphoto.com/id/1036557512/vector/hands-with-pen-fill-survey-or-exam-forms.jpg?s=1024x1024&w=is&k=20&c=hmoG8_dmkbsCteCmM4aOR-Hf3Vp9U3D0Eq0VAHbHW08=')",
+//                 color: "#FF9800",
+//                 icon: "📊"
+//               },
+//               {
+//                 title: "College Counselling",
+//                 subtitle: " (Domestic & Abroad)",
+//                 bgImage: "url('https://media.istockphoto.com/id/1288538088/vector/college-students-campus-life.jpg?s=1024x1024&w=is&k=20&c=ZQv0z7V7w7Q6Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=')",
+//                 color: "#00b3c0ff",
+//                 icon: "🎓"
+//               },
+//             ].map((card, index) => (
+//               <Grid item xs={12} sm={6} md={3} key={index}>
+//                 <Fade in={true} timeout={800} style={{ transitionDelay: `${index * 100}ms` }}>
+//                   <Card
+//                     sx={{
+//                       height: { xs: 280, md: 350 },
+//                       backgroundImage: card.bgImage,
+//                       backgroundSize: "cover",
+//                       backgroundPosition: "center",
+//                       borderRadius: 4,
+//                       position: "relative",
+//                       overflow: "hidden",
+//                       boxShadow: `0 10px 30px ${card.color}40`,
+//                       transition: "all 0.4s ease",
+//                       cursor: "pointer",
+//                       ":hover": {
+//                         transform: "translateY(-10px) scale(1.02)",
+//                         boxShadow: `0 20px 40px ${card.color}60`,
+//                         "& .service-icon": {
+//                           transform: "scale(1.2) rotate(5deg)",
+//                         }
+//                       },
+//                       display: "flex",
+//                       alignItems: "flex-end",
+//                     }}
+//                   >
+//                     <Box
+//                       sx={{
+//                         position: "absolute",
+//                         top: 0,
+//                         left: 0,
+//                         right: 0,
+//                         bottom: 0,
+//                         background: `linear-gradient(to top, ${card.color}EE, ${card.color}55)`,
+//                         zIndex: 1,
+//                       }}
+//                     />
+
+//                     {/* Icon */}
+//                     <Box
+//                       className="service-icon"
+//                       sx={{
+//                         position: "absolute",
+//                         top: 20,
+//                         right: 20,
+//                         fontSize: "3rem",
+//                         zIndex: 2,
+//                         transition: "all 0.3s ease",
+//                         textShadow: "0 2px 10px rgba(0,0,0,0.3)",
+//                       }}
+//                     >
+//                       {card.icon}
+//                     </Box>
+
+//                     <Box
+//                       sx={{
+//                         position: "relative",
+//                         zIndex: 2,
+//                         width: "100%",
+//                         p: { xs: 2, md: 3 },
+//                         background: "rgba(255, 255, 255, 0.95)",
+//                         backdropFilter: "blur(10px)",
+//                         borderRadius: "0 0 16px 16px",
+//                         borderTop: `4px solid ${card.color}`,
+//                       }}
+//                     >
+//                       <Typography
+//                         variant="h5"
+//                         sx={{
+//                           fontWeight: 800,
+//                           mb: 1,
+//                           fontSize: { xs: "1.3rem", md: "1.6rem" },
+//                           color: card.color,
+//                           display: "inline-block",
+//                         }}
+//                       >
+//                         {card.title}
+//                       </Typography>
+//                       <Typography
+//                         variant="body1"
+//                         sx={{
+//                           fontWeight: 600,
+//                           fontSize: { xs: "0.9rem", md: "1rem" },
+//                           color: "#333",
+//                         }}
+//                       >
+//                         {card.subtitle}
+//                       </Typography>
+//                     </Box>
+//                   </Card>
+//                 </Fade>
+//               </Grid>
+//             ))}
+//           </Grid>
+
+//           {/* CTA Button */}
+//           <Fade in={true} timeout={1000}>
+//             <Box sx={{ textAlign: "center", mt: 6 }}>
+//               <Button
+//                 variant="contained"
+//                 sx={{
+//                   bgcolor: "#f3ad17ff",
+//                   color: "black",
+//                   fontWeight: 800,
+//                   px: 6,
+//                   py: 1.8,
+//                   borderRadius: 3,
+//                   fontSize: "1.1rem",
+//                   textTransform: 'none',
+//                   boxShadow: "0 8px 20px rgba(243, 173, 23, 0.4)",
+//                   transition: "all 0.3s ease",
+//                   "&:hover": {
+//                     bgcolor: "#ffc107",
+//                     transform: "translateY(-3px)",
+//                     boxShadow: "0 12px 25px rgba(243, 173, 23, 0.6)",
+//                   },
+//                 }}
+//               >
+//                 Explore All Services →
+//               </Button>
+//             </Box>
+//           </Fade>
+//         </Container>
+//       </Box>
+//     </Box>
+//   );
+// };
+
+// export default Home;
+
+
+// import React from 'react';
+// import { Box, Typography, Card, Grid, Container, Button, Stack, Paper, Fade, Slide } from '@mui/material';
+// import heroImage from './images/hero-students.jpg';
+
+// const Home = () => {
+//   return (
+//     <Box sx={{ width: "100%", overflow: "hidden" }}>
+
+      
+//       {/* Hero Section - Enhanced Red Theme */}
+//       <Box sx={{
+//         bgcolor: "#9e5349ff",
+//         py: 15,
+//         background: "linear-gradient(135deg, #9e5349ff 0%, #7a3a32 100%)",
+//         position: "relative",
+//         "&::before": {
+//           content: '""',
+//           position: "absolute",
+//           top: 0,
+//           left: 0,
+//           right: 0,
+//           bottom: 0,
+//           background: "radial-gradient(circle at 70% 20%, rgba(248, 232, 0, 0.1) 0%, transparent 50%)",
+//         }
+//       }}>
+//         <Container maxWidth="lg">
+//           <Grid container spacing={6} alignItems="center">
+//             {/* Left Content */}
+//             <Grid item xs={12} md={6}>
+//               <Fade in={true} timeout={1000}>
+//                 <Box>
+//                   <Typography
+//                     variant="h3"
+//                     sx={{
+//                       fontWeight: 800,
+//                       mb: 3,
+//                       fontSize: { xs: "2.2rem", md: "3.2rem" },
+//                       color: "#ffffff",
+//                       lineHeight: 1.1,
+//                       textShadow: "0 2px 10px rgba(0,0,0,0.3)",
+//                     }}
+//                   >
+//                     Discover Your <span style={{ color: "#f8e800ff" }}>Potential</span> <br />
+//                     Design Your <span style={{ color: "#f8e800ff" }}>Career</span>
+//                   </Typography>
+
+//                   <Typography
+//                     variant="h6"
+//                     sx={{
+//                       mb: 4,
+//                       color: "rgba(255,255,255,0.9)",
+//                       fontSize: "1.2rem",
+//                       lineHeight: 1.7,
+//                       fontWeight: 400,
+//                       maxWidth: "90%",
+//                     }}
+//                   >
+//                     Navigate the competitive world with strategic career planning. Our certified counselors and AI technology provide the edge you need for success.
+//                   </Typography>
+
+//                   {/* Enhanced Features List */}
+//                   <Box sx={{ mb: 4 }}>
+//                     {["Expert Career Counselors", "Certified Professionals", "Comprehensive Career Tests"].map((feature, index) => (
+//                       <Box key={index} sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+//                         <Box sx={{
+//                           width: 8,
+//                           height: 8,
+//                           borderRadius: "50%",
+//                           bgcolor: "#f8e800ff",
+//                           mr: 2,
+//                           boxShadow: "0 0 10px #f8e800ff"
+//                         }} />
+//                         <Typography variant="body1" sx={{
+//                           fontWeight: 600,
+//                           color: "#ffffff",
+//                           fontSize: "1.1rem",
+//                           textShadow: "0 1px 2px rgba(0,0,0,0.3)"
+//                         }}>
+//                           {feature}
+//                         </Typography>
+//                       </Box>
+//                     ))}
+//                   </Box>
+
+//                   {/* Enhanced Buttons */}
+//                   <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mb: 6 }}>
+//                     <Button
+//                       variant="contained"
+//                       sx={{
+//                         bgcolor: "#f8e800ff",
+//                         color: "black",
+//                         fontWeight: 800,
+//                         px: 5,
+//                         py: 1.8,
+//                         borderRadius: 3,
+//                         fontSize: "1.1rem",
+//                         textTransform: 'none',
+//                         boxShadow: "0 8px 20px rgba(248, 232, 0, 0.4)",
+//                         transition: "all 0.3s ease",
+//                         "&:hover": {
+//                           bgcolor: "#1be700ff",
+//                           transform: "translateY(-3px)",
+//                           boxShadow: "0 12px 25px rgba(27, 231, 0, 0.5)",
+//                         },
+//                       }}
+//                     >
+//                       PSYCHOMETRIC TEST
+//                     </Button>
+//                     <Button
+//                       variant="outlined"
+//                       sx={{
+//                         border: "2px solid #f8e800ff",
+//                         color: "#f8e800ff",
+//                         fontWeight: 800,
+//                         px: 5,
+//                         py: 1.6,
+//                         borderRadius: 3,
+//                         fontSize: "1.1rem",
+//                         textTransform: 'none',
+//                         background: "rgba(248, 232, 0, 0.1)",
+//                         transition: "all 0.3s ease",
+//                         "&:hover": {
+//                           bgcolor: "#f8e800ff",
+//                           color: "black",
+//                           transform: "translateY(-3px)",
+//                           boxShadow: "0 8px 20px rgba(248, 232, 0, 0.4)",
+//                         },
+//                       }}
+//                     >
+//                       Schedule Consultation
+//                     </Button>
+//                   </Stack>
+
+//                   {/* Enhanced Stats */}
+//                   <Grid container spacing={4} sx={{ textAlign: "center" }}>
+//                     {[
+//                       { value: "10,000+", label: "Students Guided" },
+//                       { value: "99%", label: "Success Rate" },
+//                       { value: "10+", label: "Years Experience" }
+//                     ].map((stat, index) => (
+//                       <Grid item xs={4} key={index}>
+//                         <Typography variant="h4" sx={{
+//                           fontWeight: 900,
+//                           color: "#10e63eff",
+//                           mb: 1,
+//                           fontSize: "2.8rem",
+//                           textShadow: "0 2px 8px rgba(16, 230, 62, 0.4)"
+//                         }}>
+//                           {stat.value}
+//                         </Typography>
+//                         <Typography variant="body2" sx={{
+//                           color: "#ffffff",
+//                           fontWeight: 700,
+//                           fontSize: "1rem",
+//                           letterSpacing: "0.5px"
+//                         }}>
+//                           {stat.label}
+//                         </Typography>
+//                       </Grid>
+//                     ))}
+//                   </Grid>
+//                 </Box>
+//               </Fade>
+//             </Grid>
+
+//             {/* Right Image */}
+//             <Grid item xs={12} md={6}>
+//               <Slide direction="left" in={true} timeout={800}>
+//                 <Box
+//                   sx={{
+//                     width: "100%",
+//                     height: { xs: 400, md: 550 },
+//                     borderRadius: 4,
+//                     overflow: "hidden",
+//                     boxShadow: "0 25px 50px rgba(238, 234, 10, 0.3)",
+//                     backgroundImage: `url(${heroImage})`,
+//                     backgroundSize: "cover",
+//                     backgroundPosition: "center",
+//                     position: "relative",
+//                     "&::before": {
+//                       content: '""',
+//                       position: "absolute",
+//                       top: 0,
+//                       left: 0,
+//                       right: 0,
+//                       bottom: 0,
+//                       background: "linear-gradient(45deg, rgba(158, 83, 73, 0.1) 0%, transparent 50%)",
+//                       zIndex: 1,
+//                     }
+//                   }}
+//                 />
+//               </Slide>
+//             </Grid>
+//           </Grid>
+//         </Container>
+//       </Box>
+
+//       {/* Enhanced Services Section */}
+//       <Box sx={{
+//         py: 10,
+//         bgcolor: "#5ebeb6ff",
+//         background: "linear-gradient(135deg, #5ebeb6ff 0%, #4a9a94 100%)",
+//         position: "relative",
+//         overflow: "hidden",
+//         "&::before": {
+//           content: '""',
+//           position: "absolute",
+//           top: -100,
+//           right: -100,
+//           width: 300,
+//           height: 300,
+//           borderRadius: "50%",
+//           background: "rgba(243, 173, 23, 0.1)",
+//         }
+//       }}>
+//         <Container maxWidth="lg">
+//           <Fade in={true} timeout={1000}>
+//             <Typography
+//               variant="h3"
+//               align="center"
+//               sx={{
+//                 fontWeight: 800,
+//                 mb: 8,
+//                 fontSize: { xs: "2rem", md: "3rem" },
+//                 color: "#f3ad17ff",
+//                 textShadow: "0 2px 10px rgba(243, 173, 23, 0.3)",
+//                 position: "relative",
+//                 display: "inline-block",
+//                 left: "50%",
+//                 transform: "translateX(-50%)",
+//                 "&::after": {
+//                   content: '""',
+//                   position: "absolute",
+//                   bottom: -10,
+//                   left: "10%",
+//                   width: "80%",
+//                   height: 4,
+//                   background: "linear-gradient(90deg, transparent, #f3ad17ff, transparent)",
+//                   borderRadius: 2,
+//                 }
+//               }}
+//             >
+//               Let's Turn Your Potential Into A Powerful Career
+//             </Typography>
+//           </Fade>
+
+//           <Grid container spacing={4} justifyContent="center">
+//             {[
+//               {
+//                 title: "Face To Face",
+//                 subtitle: "Offline Counseling",
+//                 bgImage: "url('https://media.istockphoto.com/id/1320034911/vector/patient-with-psychologist.jpg?s=1024x1024&w=is&k=20&c=Km4sTsT5y63rJiFgFl6NmPW4J2KzQK8AJec5KKuaXSA=')",
+//                 color: "#4CAF50"
+//               },
+//               {
+//                 title: "Online Counselling",
+//                 subtitle: "Virtual Sessions",
+//                 bgImage: "url('https://media.istockphoto.com/id/1257527796/vector/sad-man-making-video-call-with-female-psychologist-by-computer.jpg?s=1024x1024&w=is&k=20&c=ycgk78JXX2bSwzP9Hdr4W1itnlydLFF0Dgj2q2_7f4Y=')",
+//                 color: "#2196F3"
+//               },
+//               {
+//                 title: "Career Assessment",
+//                 subtitle: "(Discover Yourself)",
+//                 bgImage: "url('https://media.istockphoto.com/id/1036557512/vector/hands-with-pen-fill-survey-or-exam-forms.jpg?s=1024x1024&w=is&k=20&c=hmoG8_dmkbsCteCmM4aOR-Hf3Vp9U3D0Eq0VAHbHW08=')",
+//                 color: "#FF9800"
+//               },
+//               {
+//                 title: "College Counselling",
+//                 subtitle: " (Domestic & Abroad)",
+//                 bgImage: "url('https://media.istockphoto.com/id/1211706130/vector/male-student-choosing-program-in-college.jpg?s=1024x1024&w=is&k=20&c=siNkACZrQzw3WiVYOC4HvemLouCmcfTanywAyllQGaE=')",
+//                 color: "#06deeeff"
+//               },
+//             ].map((card, index) => (
+//               <Grid item xs={12} sm={6} md={3} key={index}>
+//                 <Fade in={true} timeout={800} style={{ transitionDelay: `${index * 200}ms` }}>
+//                   <Card
+//                     sx={{
+//                       height: { xs: 280, md: 350 },
+//                       backgroundImage: card.bgImage,
+//                       backgroundSize: "cover",
+//                       backgroundPosition: "center",
+//                       borderRadius: 3,
+//                       position: "relative",
+//                       overflow: "hidden",
+//                       boxShadow: `0 10px 30px ${card.color}40`,
+//                       transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+//                       cursor: "pointer",
+//                       "&:hover": {
+//                         transform: "translateY(-10px) scale(1.02)",
+//                         boxShadow: `0 20px 40px ${card.color}80`,
+//                         "& .service-content": {
+//                           background: "rgba(255, 255, 255, 0.95)",
+//                           transform: "translateY(0)",
+//                         }
+//                       },
+//                       display: "flex",
+//                       alignItems: "flex-end",
+//                     }}
+//                   >
+//                     <Box
+//                       sx={{
+//                         position: "absolute",
+//                         top: 0,
+//                         left: 0,
+//                         right: 0,
+//                         bottom: 0,
+//                         background: `linear-gradient(to top, ${card.color}EE, ${card.color}60)`,
+//                         zIndex: 1,
+//                       }}
+//                     />
+//                     <Box
+//                       className="service-content"
+//                       sx={{
+//                         position: "relative",
+//                         zIndex: 2,
+//                         width: "100%",
+//                         p: { xs: 3, md: 4 },
+//                         background: "rgba(255, 255, 255, 0.85)",
+//                         backdropFilter: "blur(10px)",
+//                         borderRadius: "16px 16px 0 0",
+//                         transform: "translateY(5px)",
+//                         transition: "all 0.3s ease",
+//                       }}
+//                     >
+//                       <Typography
+//                         variant="h5"
+//                         sx={{
+//                           fontWeight: 800,
+//                           mb: 1.5,
+//                           fontSize: { xs: "1.4rem", md: "1.6rem" },
+//                           color: card.color,
+//                           display: "inline-block",
+//                           textShadow: "0 1px 2px rgba(0,0,0,0.1)",
+//                         }}
+//                       >
+//                         {card.title}
+//                       </Typography>
+//                       <Typography
+//                         variant="body1"
+//                         sx={{
+//                           fontWeight: 600,
+//                           fontSize: { xs: "1rem", md: "1.1rem" },
+//                           color: "#333",
+//                           lineHeight: 1.4,
+//                         }}
+//                       >
+//                         {card.subtitle}
+//                       </Typography>
+//                     </Box>
+//                   </Card>
+//                 </Fade>
+//               </Grid>
+//             ))}
+//           </Grid>
+
+//           {/* CTA Button */}
+//           <Fade in={true} timeout={1000} style={{ transitionDelay: "800ms" }}>
+//             <Box sx={{ textAlign: "center", mt: 8 }}>
+//               <Button
+//                 variant="contained"
+//                 sx={{
+//                   bgcolor: "#f3ad17ff",
+//                   color: "white",
+//                   fontWeight: 800,
+//                   px: 6,
+//                   py: 2,
+//                   borderRadius: 3,
+//                   fontSize: "1.2rem",
+//                   textTransform: 'none',
+//                   boxShadow: "0 10px 30px rgba(243, 173, 23, 0.4)",
+//                   transition: "all 0.3s ease",
+//                   "&:hover": {
+//                     bgcolor: "#e09c15",
+//                     transform: "translateY(-3px)",
+//                     boxShadow: "0 15px 35px rgba(243, 173, 23, 0.6)",
+//                   },
+//                 }}
+//               >
+//                 Explore All Services
+//               </Button>
+//             </Box>
+//           </Fade>
+//         </Container>
+//       </Box>
+//     </Box>
+//   );
+// };
+
+// export default Home;
 
 
 import React from 'react';
-import { 
-  Box, Typography, Button, Grid, Card, Chip, 
-  List, ListItem, ListItemIcon, ListItemText, 
-  useTheme, useMediaQuery, Container, Stack, 
-  Avatar, Rating, Divider 
-} from '@mui/material';
-import { motion } from 'framer-motion';
-import {
-  CheckCircle, LocationOn, Person, Star,
-  Schedule, Event, Psychology, School, 
-  FamilyRestroom, AutoStories, Public, 
-  TrendingUp, SupportAgent, Groups
-} from '@mui/icons-material';
-import { keyframes } from '@emotion/react';
-import arpanaJainImage from './images/arpana-jain.jpg';
+import { Box, Typography, Card, Grid, Container, Button, Stack, Paper, Fade, Slide } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import heroImage from './images/hero-students.jpg';
 
-// Pulsing animation for CTA elements
-const pulse = keyframes`
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-`;
+const Home = () => {
+  const navigate = useNavigate();
 
-export default function Home() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const isSmallMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
-  // Services data for mapping
-  const services = [
-    { 
-      icon: <Psychology sx={{ fontSize: 40, color: '#FFD700' }} />, 
-      title: "Career Test", 
-      description: "Discover your strengths & interests with our comprehensive assessment" 
+  const pricingPlans = [
+    {
+      id: 1,
+      title: "Psychometric Test",
+      price: "999/-",
+      features: [
+        "Career Assessment (Psychometric Test)",
+        "Career Report / Result"
+      ],
+      buttonText: "Choose Plan",
+      color: "#4CAF50"
     },
-    { 
-      icon: <School sx={{ fontSize: 40, color: '#FFD700' }} />, 
-      title: "Student Counselling", 
-      description: "One-on-one mentoring for academic and career success" 
+    {
+      id: 2,
+      title: "Online Counselling",
+      price: "2999/-",
+      features: [
+        "Career Assessment (Psychometric Test)",
+         "Report Analysis",
+        "Online Counselling 45 minutes",
+       
+      ],
+      buttonText: "Choose Plan",
+      color: "#2196F3"
     },
-    { 
-      icon: <FamilyRestroom sx={{ fontSize: 40, color: '#FFD700' }} />, 
-      title: "Parent Guidance", 
-      description: "Expert support for families navigating education choices" 
+    {
+      id: 3,
+      title: "Offline Counselling",
+      price: "4999/-",
+      features: [
+        "Career Assessment (Psychometric Test)",
+       "Report Analysis" ,
+        "Offline Counseling 1 hour",
+        "Student + Parents Session",
+        
+      ],
+      buttonText: "Choose Plan",
+      color: "#FF9800"
     },
-    { 
-      icon: <AutoStories sx={{ fontSize: 40, color: '#FFD700' }} />, 
-      title: "College Admissions", 
-      description: "Guidance for selecting and applying to the right colleges" 
-    },
-    { 
-      icon: <Public sx={{ fontSize: 40, color: '#FFD700' }} />, 
-      title: "Study Abroad", 
-      description: "Assistance with international education opportunities" 
-    },
-    { 
-      icon: <TrendingUp sx={{ fontSize: 40, color: '#FFD700' }} />, 
-      title: "Career Growth", 
-      description: "Strategies for professional development and advancement" 
-    },
+    {
+      id: 4,
+      title: "Abroad Counselling ",
+      price: "9999/-",
+      features: [
+        "Career Assessment (Psychometric Test)",
+        "Result Analysis & Research",
+        "Details of Abroad Entrance Exams",
+        "Course Selection Assistance",
+        "Admission assistance for up to 1 year"
+      ],
+      buttonText: "Choose Plan",
+      color: "#9C27B0"
+    }
   ];
 
+  const handlePlanClick = (planId) => {
+    navigate(`/package/${planId}`);
+  };
+
   return (
-    <Box sx={{ 
-      bgcolor: "#000", 
-      color: "#fff", 
-      minHeight: "100vh", 
-      py: { xs: 2, sm: 3, md: 4 },
-      px: { xs: 1, sm: 2 },
-      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8))'
-    }}>
-      <Container maxWidth="lg">
-        {/* Profile Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Card sx={{
-            p: { xs: 2, sm: 3, md: 4 },
-            mb: { xs: 3, md: 4 },
-            border: '2px solid #FFD700',
-            bgcolor: "transparent",
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8))',
-            color: "#fff",
-            overflow: 'visible',
-            borderRadius: 2,
-            boxShadow: '0 8px 32px rgba(255, 215, 0, 0.2)',
-            position: 'relative',
-            '&:before': {
-              content: '""',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: '4px',
-              background: 'linear-gradient(90deg, #FFD700, #000, #FFD700)',
-              borderRadius: '2px 2px 0 0'
-            }
-          }}>
-            <Grid container spacing={3}>
-              {/* Profile Image and Basic Info */}
-              <Grid item xs={12} md={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Avatar
-                 src={arpanaJainImage}
-                  alt="Arpana Jain - Career Counselor"
-                  sx={{
-                    width: { xs: 120, sm: 140, md: 160 },
-                    height: { xs: 120, sm: 140, md: 160 },
-                    border: '3px solid #FFD700',
-                    boxShadow: '0 0 20px rgba(255, 215, 0, 0.5)',
-                    mb: 2
-                  }}
-                />
-                
-                <Box sx={{ textAlign: 'center', width: '100%' }}>
-                  <Typography variant="h4" sx={{
-                    fontWeight: 700,
-                    color: "#FFD700",
-                    fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' },
-                    mb: 1
-                  }}>
-                    Arpana Jain
-                  </Typography>
-                  
-                  <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 1 }}>
-                    <Rating 
-                      value={5} 
-                      readOnly 
-                      sx={{ 
-                        color: '#FFD700',
-                        '& .MuiRating-icon': { fontSize: { xs: 18, sm: 20, md: 24 } }
-                      }} 
-                    />
-                    <Typography variant="body2" sx={{ color: '#ccc', ml: 1 }}>
-                      4.9 (381 Reviews)
-                    </Typography>
-                  </Box>
-                  
-                  <Typography variant="body1" sx={{ 
-                    color: '#fff', 
-                    fontSize: { xs: '0.9rem', sm: '1rem' },
-                    mb: 2
-                  }}>
-                    Certified Career Counselor & NLP Practitioner
-                  </Typography>
-                </Box>
-              </Grid>
+    <Box sx={{ width: "100%", overflow: "hidden" }}>
 
-              {/* Details Section */}
-              <Grid item xs={12} md={8}>
-                <Stack spacing={2}>
-                  {/* Location and Audience */}
-                  <Box sx={{ 
-                    display: 'flex', 
-                    flexDirection: { xs: 'column', sm: 'row' }, 
-                    gap: 2 
-                  }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', flex: 1 }}>
-                      <LocationOn sx={{ fontSize: { xs: 20, md: 24 }, mr: 1, color: '#FFD700' }} />
-                      <Box>
-                        <Typography variant="body2" sx={{ color: '#ccc' }}>Serving</Typography>
-                        <Typography variant="body1" sx={{ fontWeight: 600, color: '#FFD700' }}>
-                          Indore | Ujjain | Dewas
-                        </Typography>
-                      </Box>
-                    </Box>
-                    
-                    <Box sx={{ display: 'flex', alignItems: 'center', flex: 1 }}>
-                      <Groups sx={{ fontSize: { xs: 20, md: 24 }, mr: 1, color: '#FFD700' }} />
-                      <Box>
-                        <Typography variant="body2" sx={{ color: '#ccc' }}>Specializing In</Typography>
-                        <Typography variant="body1" sx={{ fontWeight: 600, color: '#FFD700' }}>
-                          Professionals & Students
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </Box>
+      {/* New Pricing Section */}
+      <Box sx={{
+        py: 10,
+        bgcolor: "#f8f9fa",
+        background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
+        position: "relative",
+      }}>
+        <Container maxWidth="lg">
+          <Fade in={true} timeout={1000}>
+            <Typography
+              variant="h2"
+              align="center"
+              sx={{
+                fontWeight: 800,
+                mb: 2,
+                fontSize: { xs: "2.5rem", md: "3.5rem" },
+                color: "#9e5349ff",
+                textShadow: "0 2px 10px rgba(158, 83, 73, 0.2)",
+              }}
+            >
+              It's Your Life  Plan It Better
+            </Typography>
+          </Fade>
+          
+          <Fade in={true} timeout={1000}>
+            <Typography
+              variant="h4"
+              align="center"
+              sx={{
+                fontWeight: 600,
+                mb: 8,
+                fontSize: { xs: "1.5rem", md: "2rem" },
+                color: "#5ebeb6ff",
+                fontStyle: 'italic',
+              }}
+            >
+              
+            </Typography>
+          </Fade>
 
-                  <Divider sx={{ borderColor: '#333' }} />
-
-                  {/* Experience and Sessions */}
-                  <Box sx={{ 
-                    display: 'flex', 
-                    flexWrap: 'wrap', 
-                    gap: 1,
-                    justifyContent: { xs: 'center', sm: 'flex-start' }
-                  }}>
-                    <Chip
-                      icon={<Event sx={{ color: "#FFD700 !important" }} />}
-                      label="15+ Years Experience"
-                      variant="outlined"
+          <Grid container spacing={4} justifyContent="center">
+            {pricingPlans.map((plan, index) => (
+              <Grid item xs={12} sm={6} md={3} key={plan.id}>
+                <Fade in={true} timeout={800} style={{ transitionDelay: `${index * 200}ms` }}>
+                  <Card
+                    sx={{
+                      height: { xs: 'auto', md: 500 },
+                      background: "white",
+                      borderRadius: 3,
+                      position: "relative",
+                      overflow: "hidden",
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                      transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                      cursor: "pointer",
+                      display: "flex",
+                      flexDirection: "column",
+                      "&:hover": {
+                        transform: "translateY(-10px) scale(1.02)",
+                        boxShadow: `0 20px 40px ${plan.color}40`,
+                      },
+                    }}
+                    onClick={() => handlePlanClick(plan.id)}
+                  >
+                    {/* Header with colored accent */}
+                    <Box
                       sx={{
-                        fontWeight: 600,
-                        px: 1,
-                        borderColor: "#FFD700",
-                        color: "#FFD700",
-                        fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                        height: { xs: 32, sm: 36 }
+                        background: `linear-gradient(135deg, ${plan.color} 0%, ${plan.color}CC 100%)`,
+                        py: 3,
+                        px: 2,
+                        textAlign: "center",
                       }}
-                    />
-                    <Chip
-                      icon={<SupportAgent sx={{ color: "#FFD700 !important" }} />}
-                      label="1441+ Sessions"
-                      variant="outlined"
-                      sx={{
-                        fontWeight: 600,
-                        px: 1,
-                        borderColor: "#FFD700",
-                        color: "#FFD700",
-                        fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                        height: { xs: 32, sm: 36 }
-                      }}
-                    />
-                  </Box>
+                    >
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontWeight: 800,
+                          color: "white",
+                          fontSize: { xs: "1.3rem", md: "1.5rem" },
+                          textShadow: "0 1px 2px rgba(0,0,0,0.2)",
+                        }}
+                      >
+                        {plan.title}
+                      </Typography>
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          fontWeight: 900,
+                          color: "white",
+                          mt: 1,
+                          fontSize: { xs: "2rem", md: "2.5rem" },
+                          textShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                        }}
+                      >
+                        {plan.price}
+                      </Typography>
+                    </Box>
 
-                  {/* Availability */}
-                  <Box sx={{
-                    p: 2,
-                    bgcolor: 'rgba(255, 215, 0, 0.1)',
-                    borderRadius: 1,
-                    border: '1px solid rgba(255, 215, 0, 0.3)'
-                  }}>
-                    <Typography variant="body1" sx={{
-                      fontWeight: 600,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexWrap: 'wrap',
-                      fontSize: { xs: '0.9rem', sm: '1rem' }
-                    }}>
-                      <Schedule sx={{ mr: 1, fontSize: { xs: 20, md: 24 }, color: "#FFD700" }} />
-                      Available: Wednesday, 9:00 AM to 6:00 PM
-                      <Box component="span" sx={{ color: '#FFD700', ml: 1, fontWeight: 500 }}>
-                        See More ➤
-                      </Box>
-                    </Typography>
-                  </Box>
-
-                  {/* Services List */}
-                  <Box>
-                    <Typography variant="h6" sx={{ 
-                      color: '#FFD700', 
-                      mb: 1,
-                      fontSize: { xs: '1rem', sm: '1.1rem' }
-                    }}>
-                      What I Offer:
-                    </Typography>
-                    <Grid container spacing={1}>
-                      {[
-                        "Motivational Sessions",
-                        "1-Hour Counselling Duration",
-                        "6-Month Post-Counselling Support",
-                        "College Selection Guidance",
-                        "Exam Preparation Strategies",
-                        "Behavioral Counselling"
-                      ].map((text, index) => (
-                        <Grid item xs={12} sm={6} key={index}>
-                          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <CheckCircle sx={{ color: '#FFD700', fontSize: { xs: 18, sm: 20 }, mr: 1 }} />
-                            <Typography variant="body2" sx={{ color: "#fff", fontSize: { xs: '0.8rem', sm: '0.9rem' } }}>
-                              {text}
+                    {/* Features List */}
+                    <Box sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                      <Box sx={{ flexGrow: 1 }}>
+                        {plan.features.map((feature, featureIndex) => (
+                          <Box key={featureIndex} sx={{ display: "flex", alignItems: "flex-start", mb: 2 }}>
+                            <Box sx={{
+                              width: 8,
+                              height: 8,
+                              borderRadius: "50%",
+                              bgcolor: plan.color,
+                              mr: 2,
+                              mt: 0.5,
+                              flexShrink: 0
+                            }} />
+                            <Typography variant="body1" sx={{
+                              fontWeight: 500,
+                              color: "#333",
+                              fontSize: "0.9rem",
+                              lineHeight: 1.4,
+                            }}>
+                              {feature}
                             </Typography>
                           </Box>
-                        </Grid>
-                      ))}
-                    </Grid>
-                  </Box>
+                        ))}
+                      </Box>
 
-                  {/* Book Appointment Button */}
-                  <Button
-                    variant="contained"
-                    fullWidth
+                      {/* Button */}
+                      <Button
+                        variant="contained"
+                        fullWidth
+                        sx={{
+                          bgcolor: plan.color,
+                          color: "white",
+                          fontWeight: 700,
+                          py: 1.5,
+                          borderRadius: 2,
+                          fontSize: "1rem",
+                          textTransform: 'none',
+                          boxShadow: `0 5px 15px ${plan.color}80`,
+                          transition: "all 0.3s ease",
+                          mt: 2,
+                          "&:hover": {
+                            bgcolor: plan.color,
+                            transform: "translateY(-2px)",
+                            boxShadow: `0 8px 20px ${plan.color}80`,
+                          },
+                        }}
+                      >
+                        {plan.buttonText}
+                      </Button>
+                    </Box>
+                  </Card>
+                </Fade>
+              </Grid>
+            ))}
+          </Grid>
+
+          {/* Additional Info */}
+          <Fade in={true} timeout={1000} style={{ transitionDelay: "800ms" }}>
+            <Typography
+              variant="body1"
+              align="center"
+              sx={{
+                mt: 4,
+                color: "#666",
+                fontStyle: 'italic',
+                fontSize: "1.1rem",
+              }}
+            >
+              Choose the plan that best fits your career planning needs
+            </Typography>
+          </Fade>
+        </Container>
+      </Box>
+
+      {/* Hero Section - Enhanced Red Theme (Moved Down) */}
+      <Box sx={{
+        bgcolor: "#9e5349ff",
+        py: 15,
+        background: "linear-gradient(135deg, #9e5349ff 0%, #7a3a32 100%)",
+        position: "relative",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: "radial-gradient(circle at 70% 20%, rgba(248, 232, 0, 0.1) 0%, transparent 50%)",
+        }
+      }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={6} alignItems="center">
+            {/* Left Content */}
+            <Grid item xs={12} md={6}>
+              <Fade in={true} timeout={1000}>
+                <Box>
+                  <Typography
+                    variant="h3"
                     sx={{
-                      py: { xs: 1.5, sm: 2 },
-                      bgcolor: '#FFD700',
-                      color: '#000',
-                      fontWeight: 700,
-                      fontSize: { xs: '1rem', sm: '1.1rem' },
-                      ':hover': { 
-                        bgcolor: '#e6c200',
-                        animation: `${pulse} 1s infinite`
-                      },
-                      borderRadius: 1,
-                      boxShadow: '0 4px 12px rgba(255, 215, 0, 0.4)'
+                      fontWeight: 800,
+                      mb: 3,
+                      fontSize: { xs: "2.2rem", md: "3.2rem" },
+                      color: "#ffffff",
+                      lineHeight: 1.1,
+                      textShadow: "0 2px 10px rgba(0,0,0,0.3)",
                     }}
                   >
-                    Book Your Appointment Now
-                  </Button>
-                </Stack>
-              </Grid>
-            </Grid>
-          </Card>
-        </motion.div>
+                    Discover Your <span style={{ color: "#f8e800ff" }}>Potential</span> <br />
+                    Design Your <span style={{ color: "#f8e800ff" }}>Career</span>
+                  </Typography>
 
-        {/* Services Section */}
-        <Typography variant="h3" sx={{ 
-          textAlign: 'center', 
-          color: '#FFD700', 
-          mb: 4,
-          fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' },
-          fontWeight: 700
-        }}>
-          Our Services
-        </Typography>
-        
-        <Grid container spacing={3}>
-          {services.map((service, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card sx={{ 
-                  p: 3, 
-                  height: '100%',
-                  bgcolor: 'rgba(17, 17, 17, 0.7)',
-                  border: '1px solid rgba(255, 215, 0, 0.3)',
-                  borderRadius: 2,
-                  color: "#FFD700",
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-5px)',
-                    boxShadow: '0 8px 24px rgba(255, 215, 0, 0.2)',
-                    borderColor: '#FFD700'
-                  }
-                }}>
-                  <Box sx={{ textAlign: 'center', mb: 2 }}>
-                    {service.icon}
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      mb: 4,
+                      color: "rgba(255,255,255,0.9)",
+                      fontSize: "1.2rem",
+                      lineHeight: 1.7,
+                      fontWeight: 400,
+                      maxWidth: "90%",
+                    }}
+                  >
+                    Navigate the competitive world with strategic career planning. Our certified counselors and AI technology provide the edge you need for success.
+                  </Typography>
+
+                  {/* Enhanced Features List */}
+                  <Box sx={{ mb: 4 }}>
+                    {["Expert Career Counselors", "Certified Professionals", "Comprehensive Career Tests"].map((feature, index) => (
+                      <Box key={index} sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                        <Box sx={{
+                          width: 8,
+                          height: 8,
+                          borderRadius: "50%",
+                          bgcolor: "#f8e800ff",
+                          mr: 2,
+                          boxShadow: "0 0 10px #f8e800ff"
+                        }} />
+                        <Typography variant="body1" sx={{
+                          fontWeight: 600,
+                          color: "#ffffff",
+                          fontSize: "1.1rem",
+                          textShadow: "0 1px 2px rgba(0,0,0,0.3)"
+                        }}>
+                          {feature}
+                        </Typography>
+                      </Box>
+                    ))}
                   </Box>
-                  <Typography variant="h5" sx={{ 
-                    textAlign: 'center', 
-                    mb: 2,
-                    fontSize: { xs: '1.2rem', sm: '1.3rem', md: '1.4rem' }
-                  }}>
-                    {service.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ 
-                    textAlign: 'center', 
-                    color: "#fff",
-                    fontSize: { xs: '0.85rem', sm: '0.9rem' }
-                  }}>
-                    {service.description}
-                  </Typography>
-                </Card>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
 
-        {/* Testimonials/CTA Section */}
-        <Box sx={{ 
-          mt: 6, 
-          p: { xs: 2, sm: 3, md: 4 },
-          bgcolor: 'rgba(255, 215, 0, 0.1)',
-          border: '1px solid rgba(255, 215, 0, 0.3)',
-          borderRadius: 2,
-          textAlign: 'center'
-        }}>
-          <Typography variant="h4" sx={{ 
-            color: '#FFD700', 
-            mb: 2,
-            fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2.2rem' }
-          }}>
-            Ready to Transform Your Career Path?
-          </Typography>
-          <Typography variant="body1" sx={{ 
-            color: '#fff', 
-            mb: 3,
-            fontSize: { xs: '0.9rem', sm: '1rem' },
-            maxWidth: '800px',
-            mx: 'auto'
-          }}>
-            Join hundreds of satisfied students and professionals who have found their ideal career path with personalized counseling sessions.
-          </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            sx={{
-              py: 1.5,
-              px: 4,
-              bgcolor: '#FFD700',
-              color: '#000',
-              fontWeight: 700,
-              fontSize: { xs: '1rem', sm: '1.1rem' },
-              ':hover': { 
-                bgcolor: '#e6c200',
-                animation: `${pulse} 1s infinite`
+                  {/* Enhanced Buttons */}
+                  <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mb: 6 }}>
+                    <Button
+                      variant="contained"
+                      sx={{
+                        bgcolor: "#f8e800ff",
+                        color: "black",
+                        fontWeight: 800,
+                        px: 5,
+                        py: 1.8,
+                        borderRadius: 3,
+                        fontSize: "1.1rem",
+                        textTransform: 'none',
+                        boxShadow: "0 8px 20px rgba(248, 232, 0, 0.4)",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          bgcolor: "#1be700ff",
+                          transform: "translateY(-3px)",
+                          boxShadow: "0 12px 25px rgba(27, 231, 0, 0.5)",
+                        },
+                      }}
+                    >
+                      PSYCHOMETRIC TEST
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      sx={{
+                        border: "2px solid #f8e800ff",
+                        color: "#f8e800ff",
+                        fontWeight: 800,
+                        px: 5,
+                        py: 1.6,
+                        borderRadius: 3,
+                        fontSize: "1.1rem",
+                        textTransform: 'none',
+                        background: "rgba(248, 232, 0, 0.1)",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          bgcolor: "#f8e800ff",
+                          color: "black",
+                          transform: "translateY(-3px)",
+                          boxShadow: "0 8px 20px rgba(248, 232, 0, 0.4)",
+                        },
+                      }}
+                    >
+                      Schedule Consultation
+                    </Button>
+                  </Stack>
+
+                  {/* Enhanced Stats */}
+                  <Grid container spacing={4} sx={{ textAlign: "center" }}>
+                    {[
+                      { value: "10,000+", label: "Students Guided" },
+                      { value: "99%", label: "Success Rate" },
+                      { value: "10+", label: "Years Experience" }
+                    ].map((stat, index) => (
+                      <Grid item xs={4} key={index}>
+                        <Typography variant="h4" sx={{
+                          fontWeight: 900,
+                          color: "#10e63eff",
+                          mb: 1,
+                          fontSize: "2.8rem",
+                          textShadow: "0 2px 8px rgba(16, 230, 62, 0.4)"
+                        }}>
+                          {stat.value}
+                        </Typography>
+                        <Typography variant="body2" sx={{
+                          color: "#ffffff",
+                          fontWeight: 700,
+                          fontSize: "1rem",
+                          letterSpacing: "0.5px"
+                        }}>
+                          {stat.label}
+                        </Typography>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Box>
+              </Fade>
+            </Grid>
+
+            {/* Right Image */}
+            <Grid item xs={12} md={6}>
+              <Slide direction="left" in={true} timeout={800}>
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: { xs: 400, md: 550 },
+                    borderRadius: 4,
+                    overflow: "hidden",
+                    boxShadow: "0 25px 50px rgba(238, 234, 10, 0.3)",
+                    backgroundImage: `url(${heroImage})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    position: "relative",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "linear-gradient(45deg, rgba(158, 83, 73, 0.1) 0%, transparent 50%)",
+                      zIndex: 1,
+                    }
+                  }}
+                />
+              </Slide>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* Enhanced Services Section */}
+      <Box sx={{
+        py: 10,
+        bgcolor: "#5ebeb6ff",
+        background: "linear-gradient(135deg, #5ebeb6ff 0%, #4a9a94 100%)",
+        position: "relative",
+        overflow: "hidden",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: -100,
+          right: -100,
+          width: 300,
+          height: 300,
+          borderRadius: "50%",
+          background: "rgba(243, 173, 23, 0.1)",
+        }
+      }}>
+        <Container maxWidth="lg">
+          <Fade in={true} timeout={1000}>
+            <Typography
+              variant="h3"
+              align="center"
+              sx={{
+                fontWeight: 800,
+                mb: 8,
+                fontSize: { xs: "2rem", md: "3rem" },
+                color: "#f3ad17ff",
+                textShadow: "0 2px 10px rgba(243, 173, 23, 0.3)",
+                position: "relative",
+                display: "inline-block",
+                left: "50%",
+                transform: "translateX(-50%)",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  bottom: -10,
+                  left: "10%",
+                  width: "80%",
+                  height: 4,
+                  background: "linear-gradient(90deg, transparent, #f3ad17ff, transparent)",
+                  borderRadius: 2,
+                }
+              }}
+            >
+              Let's Turn Your Potential Into A Powerful Career
+            </Typography>
+          </Fade>
+
+          <Grid container spacing={4} justifyContent="center">
+            {[
+              {
+                title: "Face To Face",
+                subtitle: "Offline Counseling",
+                bgImage: "url('https://media.istockphoto.com/id/1320034911/vector/patient-with-psychologist.jpg?s=1024x1024&w=is&k=20&c=Km4sTsT5y63rJiFgFl6NmPW4J2KzQK8AJec5KKuaXSA=')",
+                color: "#4CAF50"
               },
-              borderRadius: 2,
-              boxShadow: '0 4px 12px rgba(255, 215, 0, 0.4)'
-            }}
-          >
-            Get Started Today
-          </Button>
-        </Box>
-      </Container>
+              {
+                title: "Online Counselling",
+                subtitle: "Virtual Sessions",
+                bgImage: "url('https://media.istockphoto.com/id/1257527796/vector/sad-man-making-video-call-with-female-psychologist-by-computer.jpg?s=1024x1024&w=is&k=20&c=ycgk78JXX2bSwzP9Hdr4W1itnlydLFF0Dgj2q2_7f4Y=')",
+                color: "#2196F3"
+              },
+              {
+                title: "Career Assessment",
+                subtitle: "(Discover Yourself)",
+                bgImage: "url('https://media.istockphoto.com/id/1036557512/vector/hands-with-pen-fill-survey-or-exam-forms.jpg?s=1024x1024&w=is&k=20&c=hmoG8_dmkbsCteCmM4aOR-Hf3Vp9U3D0Eq0VAHbHW08=')",
+                color: "#FF9800"
+              },
+              {
+                title: "College Counselling",
+                subtitle: " (Domestic & Abroad)",
+                bgImage: "url('https://media.istockphoto.com/id/1211706130/vector/male-student-choosing-program-in-college.jpg?s=1024x1024&w=is&k=20&c=siNkACZrQzw3WiVYOC4HvemLouCmcfTanywAyllQGaE=')",
+                color: "#06deeeff"
+              },
+            ].map((card, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Fade in={true} timeout={800} style={{ transitionDelay: `${index * 200}ms` }}>
+                  <Card
+                    sx={{
+                      height: { xs: 280, md: 350 },
+                      backgroundImage: card.bgImage,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      borderRadius: 3,
+                      position: "relative",
+                      overflow: "hidden",
+                      boxShadow: `0 10px 30px ${card.color}40`,
+                      transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                      cursor: "pointer",
+                      "&:hover": {
+                        transform: "translateY(-10px) scale(1.02)",
+                        boxShadow: `0 20px 40px ${card.color}80`,
+                        "& .service-content": {
+                          background: "rgba(255, 255, 255, 0.95)",
+                          transform: "translateY(0)",
+                        }
+                      },
+                      display: "flex",
+                      alignItems: "flex-end",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: `linear-gradient(to top, ${card.color}EE, ${card.color}60)`,
+                        zIndex: 1,
+                      }}
+                    />
+                    <Box
+                      className="service-content"
+                      sx={{
+                        position: "relative",
+                        zIndex: 2,
+                        width: "100%",
+                        p: { xs: 3, md: 4 },
+                        background: "rgba(255, 255, 255, 0.85)",
+                        backdropFilter: "blur(10px)",
+                        borderRadius: "16px 16px 0 0",
+                        transform: "translateY(5px)",
+                        transition: "all 0.3s ease",
+                      }}
+                    >
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontWeight: 800,
+                          mb: 1.5,
+                          fontSize: { xs: "1.4rem", md: "1.6rem" },
+                          color: card.color,
+                          display: "inline-block",
+                          textShadow: "0 1px 2px rgba(0,0,0,0.1)",
+                        }}
+                      >
+                        {card.title}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontWeight: 600,
+                          fontSize: { xs: "1rem", md: "1.1rem" },
+                          color: "#333",
+                          lineHeight: 1.4,
+                        }}
+                      >
+                        {card.subtitle}
+                      </Typography>
+                    </Box>
+                  </Card>
+                </Fade>
+              </Grid>
+            ))}
+          </Grid>
+
+          {/* CTA Button */}
+          <Fade in={true} timeout={1000} style={{ transitionDelay: "800ms" }}>
+            <Box sx={{ textAlign: "center", mt: 8 }}>
+              <Button
+                variant="contained"
+                sx={{
+                  bgcolor: "#f3ad17ff",
+                  color: "white",
+                  fontWeight: 800,
+                  px: 6,
+                  py: 2,
+                  borderRadius: 3,
+                  fontSize: "1.2rem",
+                  textTransform: 'none',
+                  boxShadow: "0 10px 30px rgba(243, 173, 23, 0.4)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    bgcolor: "#e09c15",
+                    transform: "translateY(-3px)",
+                    boxShadow: "0 15px 35px rgba(243, 173, 23, 0.6)",
+                  },
+                }}
+              >
+                Explore All Services
+              </Button>
+            </Box>
+          </Fade>
+        </Container>
+      </Box>
     </Box>
   );
-}
+};
+
+export default Home;

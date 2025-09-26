@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PageLayout from './components/PageLayout';
+import ChatBot from "./components/ChatBot";
 
 // pages
 import Home from './pages/Home';
@@ -29,6 +30,7 @@ export default function App() {
     <>
       <Navbar />
       <PageLayout>
+        <ChatBot />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -50,8 +52,6 @@ export default function App() {
 
           <Route path="/schools-colleges" element={<SchoolsColleges />} />
           <Route path="/contact" element={<Contact />} />
-
-          {/* Fallback route could be added */}
         </Routes>
       </PageLayout>
       <Footer />

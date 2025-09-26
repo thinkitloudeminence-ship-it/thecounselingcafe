@@ -1,173 +1,16 @@
-// import React, { useState } from 'react';
-// import {
-//   AppBar, Toolbar, Typography, Box, Button, IconButton, Menu, MenuItem, useMediaQuery, Link
-// } from '@mui/material';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import PhoneIcon from '@mui/icons-material/Phone';
-// import { Link as RouterLink, useNavigate } from 'react-router-dom';
-// import { useTheme } from '@mui/material/styles';
-
-// export default function Navbar() {
-//   const theme = useTheme();
-//   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-//   const navigate = useNavigate();
-
-//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-//   const [studentAnchor, setStudentAnchor] = useState(null);
-//   const [parentAnchor, setParentAnchor] = useState(null);
-
-//   const handleLogoClick = () => navigate('/');
-
-//   return (
-//     <AppBar 
-//       position="sticky" 
-//       elevation={0} 
-//       sx={{ background: 'transparent', boxShadow: 'none' }}  // ✅ background remove
-//     >
-//       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-
-//         {/* ✅ Mobile View Logo */}
-//         {isMobile && (
-//           <Box
-//             sx={{ cursor: 'pointer', display: "flex", alignItems: "center" }}
-//             onClick={handleLogoClick}
-//           >
-//             <Typography variant="h6" sx={{ color: '#000', fontWeight: 700 }}>
-//               THE Counseling Cafe
-//             </Typography>
-//           </Box>
-//         )}
-
-//         {/* ✅ Mobile View → Number Left, Hamburger Right */}
-//         {isMobile ? (
-//           <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
-//             {/* Number left */}
-//             <Link
-//               href="tel:+919876543210"
-//               underline="none"
-//               sx={{ color: "#000", display: "flex", alignItems: "center", fontWeight: 600 }}
-//             >
-//               <PhoneIcon sx={{ mr: 0.5 }} />
-//               +91 98765 43210
-//             </Link>
-
-//             {/* Hamburger right */}
-//             <IconButton color="inherit" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-//               <MenuIcon sx={{ color: '#000' }} />
-//             </IconButton>
-//           </Box>
-//         ) : (
-//           /* ✅ Desktop Layout */
-//           <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
-
-//             {/* Logo Left */}
-//             <Box
-//               sx={{ cursor: "pointer", flex: "0 0 auto" }}
-//               onClick={handleLogoClick}
-//             >
-//               <Typography variant="h6" sx={{ color: '#000', fontWeight: 700 }}>
-//                 THE Counseling Cafe
-//               </Typography>
-//             </Box>
-
-//             {/* Pages Center */}
-//             <Box sx={{ flex: 1, display: "flex", justifyContent: "center", gap: 2 }}>
-//               <Button component={RouterLink} to="/about" sx={{ color: '#000' }}>ABOUT</Button>
-
-//               <Button
-//                 sx={{ color: '#000' }}
-//                 onMouseEnter={(e) => setStudentAnchor(e.currentTarget)}
-//                 onClick={(e) => setStudentAnchor(e.currentTarget)}
-//               >
-//                 STUDENT
-//               </Button>
-//               <Menu
-//                 anchorEl={studentAnchor}
-//                 open={Boolean(studentAnchor)}
-//                 onClose={() => setStudentAnchor(null)}
-//                 MenuListProps={{ onMouseLeave: () => setStudentAnchor(null) }}
-//               >
-//                 <MenuItem component={RouterLink} to="/student/career-test">Career Test</MenuItem>
-//                 <MenuItem component={RouterLink} to="/student/career-counselling">Career Counselling</MenuItem>
-//                 <MenuItem component={RouterLink} to="/student/competitive-exam">Competitive Exam Counselling</MenuItem>
-//                 <MenuItem component={RouterLink} to="/student/college-counselling">College Counselling</MenuItem>
-//                 <MenuItem component={RouterLink} to="/student/study-abroad">Study Abroad</MenuItem>
-//                 <MenuItem component={RouterLink} to="/student/pricing">Pricing</MenuItem>
-//               </Menu>
-
-//               <Button
-//                 sx={{ color: '#000' }}
-//                 onMouseEnter={(e) => setParentAnchor(e.currentTarget)}
-//                 onClick={(e) => setParentAnchor(e.currentTarget)}
-//               >
-//                 PARENTS
-//               </Button>
-//               <Menu
-//                 anchorEl={parentAnchor}
-//                 open={Boolean(parentAnchor)}
-//                 onClose={() => setParentAnchor(null)}
-//                 MenuListProps={{ onMouseLeave: () => setParentAnchor(null) }}
-//               >
-//                 <MenuItem component={RouterLink} to="/parents/personal-counselling">Personal Counselling</MenuItem>
-//                 <MenuItem component={RouterLink} to="/parents/parenting">Parenting</MenuItem>
-//                 <MenuItem component={RouterLink} to="/parents/career-counselling">Career Counselling</MenuItem>
-//                 <MenuItem component={RouterLink} to="/parents/pricing">Pricing</MenuItem>
-//               </Menu>
-
-//               <Button component={RouterLink} to="/schools-colleges" sx={{ color: '#000' }}>SCHOOL & COLLEGES</Button>
-//             </Box>
-
-//             {/* Contact Right */}
-//             <Box sx={{ flex: "0 0 auto" }}>
-//               <Button component={RouterLink} to="/contact" sx={{ color: '#000', fontWeight: 600 }}>
-//               Free career Test
-//               </Button>
-//             </Box>
-//           </Box>
-//         )}
-//       </Toolbar>
-
-//       {/* ✅ Mobile dropdown menu */}
-//       {isMobile && mobileMenuOpen && (
-//         <Box sx={{ bgcolor: '#fff', px: 2, pb: 2 }}>
-//           <Button fullWidth component={RouterLink} to="/about" onClick={() => setMobileMenuOpen(false)}>ABOUT</Button>
-//           <Box>
-//             <Button fullWidth onClick={() => setMobileMenuOpen(false)}>STUDENT</Button>
-//             <Box sx={{ pl: 2 }}>
-//               <Button fullWidth component={RouterLink} to="/student/career-test" onClick={() => setMobileMenuOpen(false)}>Career Test</Button>
-//               <Button fullWidth component={RouterLink} to="/student/career-counselling" onClick={() => setMobileMenuOpen(false)}>Career Counselling</Button>
-//               <Button fullWidth component={RouterLink} to="/student/competitive-exam" onClick={() => setMobileMenuOpen(false)}>Competitive Exam</Button>
-//               <Button fullWidth component={RouterLink} to="/student/college-counselling" onClick={() => setMobileMenuOpen(false)}>College Counselling</Button>
-//               <Button fullWidth component={RouterLink} to="/student/study-abroad" onClick={() => setMobileMenuOpen(false)}>Study Abroad</Button>
-//               <Button fullWidth component={RouterLink} to="/student/pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</Button>
-//             </Box>
-//           </Box>
-
-//           <Box>
-//             <Button fullWidth onClick={() => setMobileMenuOpen(false)}>PARENTS</Button>
-//             <Box sx={{ pl: 2 }}>
-//               <Button fullWidth component={RouterLink} to="/parents/personal-counselling" onClick={() => setMobileMenuOpen(false)}>Personal Counselling</Button>
-//               <Button fullWidth component={RouterLink} to="/parents/parenting" onClick={() => setMobileMenuOpen(false)}>Parenting</Button>
-//               <Button fullWidth component={RouterLink} to="/parents/career-counselling" onClick={() => setMobileMenuOpen(false)}>Career Counselling</Button>
-//               <Button fullWidth component={RouterLink} to="/parents/pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</Button>
-//             </Box>
-//           </Box>
-
-//           <Button fullWidth component={RouterLink} to="/schools-colleges" onClick={() => setMobileMenuOpen(false)}>SCHOOL & COLLEGES</Button>
-//           <Button fullWidth component={RouterLink} to="/contact" onClick={() => setMobileMenuOpen(false)}>Free career Test</Button>
-//         </Box>
-//       )}
-//     </AppBar>
-//   );
-// }
-
-
 import React, { useState } from 'react';
 import {
-  AppBar, Toolbar, Typography, Box, Button, IconButton, Menu, MenuItem, useMediaQuery, Link
+  AppBar, Toolbar, Typography, Box, Button, IconButton, Menu, MenuItem, useMediaQuery, Link,
+  Container, Chip, Fade
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import SchoolIcon from '@mui/icons-material/School';
+import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+import GroupsIcon from '@mui/icons-material/Groups';
+import ContactPageIcon from '@mui/icons-material/ContactPage';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 
@@ -179,6 +22,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [studentAnchor, setStudentAnchor] = useState(null);
   const [parentAnchor, setParentAnchor] = useState(null);
+  const [schoolAnchor, setSchoolAnchor] = useState(null);
 
   const handleLogoClick = () => navigate('/');
 
@@ -186,64 +30,100 @@ export default function Navbar() {
     <AppBar
       position="sticky"
       elevation={0}
-      sx={{ background: '#ffffffff', boxShadow: 'none' }}  // ✅ Changed background to black
+      sx={{
+        background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+        borderBottom: '1px solid rgba(248, 232, 0, 0.2)'
+      }}
     >
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Container maxWidth="lg">
+        <Toolbar sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          px: 0,
+          py: 1
+        }}>
 
-        {/* ✅ Mobile View Logo */}
-        {isMobile && (
-          <Box
-            sx={{ cursor: 'pointer', display: "flex", alignItems: "center" }}
-            onClick={handleLogoClick}
-          >
-            <img
-              src="/TCC logo.png"
-              alt="THE Counseling Cafe"
-              style={{ height: '40px' }}
-            />
-          </Box>
-        )}
-
-        {/* ✅ Mobile View → Number Left, Hamburger Right */}
-        {isMobile ? (
-          <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
-            {/* Number left */}
-            <Link
-              href="tel:+919876543210"
-              underline="none"
-              sx={{ color: "#000000ff", display: "flex", alignItems: "center", fontWeight: 600 }} // ✅ Changed to yellow
-            >
-              <PhoneIcon sx={{ mr: 0.5 }} />
-              +91 98765 43210
-            </Link>
-
-            {/* Hamburger right */}
-            <IconButton color="inherit" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <MenuIcon sx={{ color: '#FFD700' }} /> {/* ✅ Changed to yellow */}
-            </IconButton>
-          </Box>
-        ) : (
-          /* ✅ Desktop Layout */
-          <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
-
-            {/* Logo Left */}
+          {/* Logo */}
+          <Fade in={true} timeout={800}>
             <Box
-              sx={{ cursor: "pointer", flex: "0 0 auto" }}
+              sx={{
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: { xs: 120, md: 160 },
+                height: { xs: 50, md: 70 },
+                transition: 'transform 0.3s ease',
+                ':hover': {
+                  transform: 'scale(1.05)'
+                }
+              }}
               onClick={handleLogoClick}
             >
               <img
                 src="/TCC logo.png"
-                alt="THE Counseling Cafe"
-                style={{ height: '50px' }}
+                alt="The Counseling Cafe Logo"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                }}
               />
             </Box>
+          </Fade>
 
-            {/* Pages Center */}
-            <Box sx={{ flex: 1, display: "flex", justifyContent: "center", gap: 2 }}>
-              <Button component={RouterLink} to="/about" sx={{ color: '#FFD700' }}>ABOUT</Button> {/* ✅ Changed to yellow */}
-
+          {/* Desktop Menu */}
+          {!isMobile && (
+            <Box sx={{
+              display: 'flex',
+              alignItems: 'center',
+              flex: 1,
+              justifyContent: 'center',
+              gap: 1
+            }}>
               <Button
-                sx={{ color: '#FFD700' }} // ✅ Changed to yellow
+                component={RouterLink}
+                to="/about"
+                startIcon={<PsychologyIcon />}
+                sx={{
+                  color: '#000',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  px: 2,
+                  py: 1,
+                  borderRadius: 2,
+                  transition: 'all 0.3s ease',
+                  ':hover': {
+                    bgcolor: '#f8e800ff',
+                    color: '#000',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 12px rgba(248, 232, 0, 0.3)'
+                  }
+                }}
+              >
+                ABOUT
+              </Button>
+
+              {/* Student Menu */}
+              <Button
+                startIcon={<SchoolIcon />}
+                sx={{
+                  color: '#000',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  px: 2,
+                  py: 1,
+                  borderRadius: 2,
+                  transition: 'all 0.3s ease',
+                  ':hover': {
+                    bgcolor: '#f8e800ff',
+                    color: '#000',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 12px rgba(248, 232, 0, 0.3)'
+                  }
+                }}
                 onMouseEnter={(e) => setStudentAnchor(e.currentTarget)}
                 onClick={(e) => setStudentAnchor(e.currentTarget)}
               >
@@ -255,22 +135,77 @@ export default function Navbar() {
                 onClose={() => setStudentAnchor(null)}
                 MenuListProps={{ onMouseLeave: () => setStudentAnchor(null) }}
                 PaperProps={{
-                  style: {
-                    backgroundColor: '#000', // ✅ Menu background to black
-                    color: '#FFD700' // ✅ Menu text to yellow
+                  sx: {
+                    bgcolor: '#fff',
+                    color: '#000',
+                    borderRadius: 2,
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                    mt: 1
                   }
                 }}
               >
-                <MenuItem component={RouterLink} to="/student/career-test">Career Test</MenuItem>
-                <MenuItem component={RouterLink} to="/student/career-counselling">Career Counselling</MenuItem>
-                <MenuItem component={RouterLink} to="/student/competitive-exam">Competitive Exam Counselling</MenuItem>
-                <MenuItem component={RouterLink} to="/student/college-counselling">College Counselling</MenuItem>
-                <MenuItem component={RouterLink} to="/student/study-abroad">Study Abroad</MenuItem>
-                <MenuItem component={RouterLink} to="/student/pricing">Pricing</MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/student/career-test"
+                  sx={{ fontWeight: 500, py: 1.5 }}
+                >
+                  Career Test
+                </MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/student/career-counselling"
+                  sx={{ fontWeight: 500, py: 1.5 }}
+                >
+                  Career Counselling
+                </MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/student/competitive-exam"
+                  sx={{ fontWeight: 500, py: 1.5 }}
+                >
+                  Competitive Exam Counselling
+                </MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/student/college-counselling"
+                  sx={{ fontWeight: 500, py: 1.5 }}
+                >
+                  College Counselling
+                </MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/student/study-abroad"
+                  sx={{ fontWeight: 500, py: 1.5 }}
+                >
+                  Study Abroad
+                </MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/student/pricing"
+                  sx={{ fontWeight: 500, py: 1.5 }}
+                >
+                  Pricing
+                </MenuItem>
               </Menu>
 
+              {/* Parents Menu */}
               <Button
-                sx={{ color: '#FFD700' }} // ✅ Changed to yellow
+                startIcon={<FamilyRestroomIcon />}
+                sx={{
+                  color: '#000',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  px: 2,
+                  py: 1,
+                  borderRadius: 2,
+                  transition: 'all 0.3s ease',
+                  ':hover': {
+                    bgcolor: '#f8e800ff',
+                    color: '#000',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 12px rgba(248, 232, 0, 0.3)'
+                  }
+                }}
                 onMouseEnter={(e) => setParentAnchor(e.currentTarget)}
                 onClick={(e) => setParentAnchor(e.currentTarget)}
               >
@@ -282,61 +217,270 @@ export default function Navbar() {
                 onClose={() => setParentAnchor(null)}
                 MenuListProps={{ onMouseLeave: () => setParentAnchor(null) }}
                 PaperProps={{
-                  style: {
-                    backgroundColor: '#000000ff', // ✅ Menu background to black
-                    color: '#FFD700' // ✅ Menu text to yellow
+                  sx: {
+                    bgcolor: '#fff',
+                    color: '#000',
+                    borderRadius: 2,
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                    mt: 1
                   }
                 }}
               >
-                <MenuItem component={RouterLink} to="/parents/personal-counselling">Personal Counselling</MenuItem>
-                <MenuItem component={RouterLink} to="/parents/parenting">Parenting</MenuItem>
-                <MenuItem component={RouterLink} to="/parents/career-counselling">Career Counselling</MenuItem>
-                <MenuItem component={RouterLink} to="/parents/pricing">Pricing</MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/parents/personal-counselling"
+                  sx={{ fontWeight: 500, py: 1.5 }}
+                >
+                  Personal Counselling
+                </MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/parents/parenting"
+                  sx={{ fontWeight: 500, py: 1.5 }}
+                >
+                  Parenting
+                </MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/parents/career-counselling"
+                  sx={{ fontWeight: 500, py: 1.5 }}
+                >
+                  Career Counselling
+                </MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/parents/pricing"
+                  sx={{ fontWeight: 500, py: 1.5 }}
+                >
+                  Pricing
+                </MenuItem>
               </Menu>
 
-              <Button component={RouterLink} to="/schools-colleges" sx={{ color: '#FFD700' }}>SCHOOL & COLLEGES</Button> {/* ✅ Changed to yellow */}
-            </Box>
+              {/* Schools & Colleges Menu */}
+              <Button
+                startIcon={<GroupsIcon />}
+                sx={{
+                  color: '#000',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  px: 2,
+                  py: 1,
+                  borderRadius: 2,
+                  transition: 'all 0.3s ease',
+                  ':hover': {
+                    bgcolor: '#f8e800ff',
+                    color: '#000',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 12px rgba(248, 232, 0, 0.3)'
+                  }
+                }}
+                onMouseEnter={(e) => setSchoolAnchor(e.currentTarget)}
+                onClick={(e) => setSchoolAnchor(e.currentTarget)}
+              >
+                SCHOOL & COLLEGE
+              </Button>
+              <Menu
+                anchorEl={schoolAnchor}
+                open={Boolean(schoolAnchor)}
+                onClose={() => setSchoolAnchor(null)}
+                MenuListProps={{ onMouseLeave: () => setSchoolAnchor(null) }}
+                PaperProps={{
+                  sx: {
+                    bgcolor: '#fff',
+                    color: '#000',
+                    borderRadius: 2,
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                    mt: 1
+                  }
+                }}
+              >
+                <MenuItem sx={{ fontWeight: 500, py: 1.5 }}>Workshops</MenuItem>
+                <MenuItem sx={{ fontWeight: 500, py: 1.5 }}>Career Guidance Programs</MenuItem>
+                <MenuItem sx={{ fontWeight: 500, py: 1.5 }}>Faculty Training</MenuItem>
+              </Menu>
 
-            {/* Contact Right */}
-            <Box sx={{ flex: "0 0 auto" }}>
-              <Button component={RouterLink} to="/contact" sx={{ color: '#FFD700', fontWeight: 600 }}> {/* ✅ Changed to yellow */}
-                Free career Test
+              <Button
+                component={RouterLink}
+                to="/contact"
+                startIcon={<ContactPageIcon />}
+                sx={{
+                  color: '#000',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  px: 2,
+                  py: 1,
+                  borderRadius: 2,
+                  transition: 'all 0.3s ease',
+                  ':hover': {
+                    bgcolor: '#f8e800ff',
+                    color: '#000',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 12px rgba(248, 232, 0, 0.3)'
+                  }
+                }}
+              >
+                CONTACT
               </Button>
             </Box>
-          </Box>
+          )}
+
+          {/* Right Section - CTA Button */}
+          {!isMobile && (
+            <Fade in={true} timeout={1000}>
+              <Button
+                component={RouterLink}
+                to="/contact"
+                sx={{
+                  bgcolor: '#f8e800ff',
+                  color: '#000',
+                  borderRadius: 3,
+                  fontWeight: 800,
+                  px: 4,
+                  py: 1.5,
+                  fontSize: '1rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  boxShadow: '0 6px 20px rgba(248, 232, 0, 0.4)',
+                  transition: 'all 0.3s ease',
+                  ':hover': {
+                    bgcolor: '#000',
+                    color: '#f8e800ff',
+                    transform: 'translateY(-3px)',
+                    boxShadow: '0 10px 25px rgba(248, 232, 0, 0.6)'
+                  },
+                  minWidth: 180
+                }}
+              >
+                FREE CAREER TEST
+              </Button>
+            </Fade>
+          )}
+
+          {/* Mobile Hamburger */}
+          {isMobile && (
+            <IconButton
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              sx={{
+                bgcolor: '#f8e800ff',
+                color: '#000',
+                ':hover': { bgcolor: '#000', color: '#f8e800ff' }
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
+        </Toolbar>
+
+        {/* Mobile Menu */}
+        {isMobile && mobileMenuOpen && (
+          <Fade in={mobileMenuOpen}>
+            <Box sx={{
+              bgcolor: '#fff',
+              borderRadius: 2,
+              boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+              mb: 2,
+              overflow: 'hidden'
+            }}>
+              <Button
+                fullWidth
+                component={RouterLink}
+                to="/about"
+                startIcon={<PsychologyIcon />}
+                onClick={() => setMobileMenuOpen(false)}
+                sx={{
+                  justifyContent: 'flex-start',
+                  px: 3,
+                  py: 2,
+                  borderBottom: '1px solid rgba(0,0,0,0.1)'
+                }}
+              >
+                ABOUT
+              </Button>
+
+              <Button
+                fullWidth
+                component={RouterLink}
+                to="/student/career-test"
+                startIcon={<SchoolIcon />}
+                onClick={() => setMobileMenuOpen(false)}
+                sx={{
+                  justifyContent: 'flex-start',
+                  px: 3,
+                  py: 2,
+                  borderBottom: '1px solid rgba(0,0,0,0.1)'
+                }}
+              >
+                STUDENT
+              </Button>
+
+              <Button
+                fullWidth
+                component={RouterLink}
+                to="/parents/personal-counselling"
+                startIcon={<FamilyRestroomIcon />}
+                onClick={() => setMobileMenuOpen(false)}
+                sx={{
+                  justifyContent: 'flex-start',
+                  px: 3,
+                  py: 2,
+                  borderBottom: '1px solid rgba(0,0,0,0.1)'
+                }}
+              >
+                PARENTS
+              </Button>
+
+              <Button
+                fullWidth
+                component={RouterLink}
+                to="/schools-colleges"
+                startIcon={<GroupsIcon />}
+                onClick={() => setMobileMenuOpen(false)}
+                sx={{
+                  justifyContent: 'flex-start',
+                  px: 3,
+                  py: 2,
+                  borderBottom: '1px solid rgba(0,0,0,0.1)'
+                }}
+              >
+                SCHOOL & COLLEGE
+              </Button>
+
+              <Button
+                fullWidth
+                component={RouterLink}
+                to="/contact"
+                startIcon={<ContactPageIcon />}
+                onClick={() => setMobileMenuOpen(false)}
+                sx={{
+                  justifyContent: 'flex-start',
+                  px: 3,
+                  py: 2,
+                  borderBottom: '1px solid rgba(0,0,0,0.1)'
+                }}
+              >
+                CONTACT
+              </Button>
+
+              <Button
+                fullWidth
+                component={RouterLink}
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                sx={{
+                  bgcolor: '#f8e800ff',
+                  color: '#000',
+                  fontWeight: 800,
+                  px: 3,
+                  py: 2,
+                  fontSize: '1rem'
+                }}
+              >
+                FREE CAREER TEST
+              </Button>
+            </Box>
+          </Fade>
         )}
-      </Toolbar>
-
-      {/* ✅ Mobile dropdown menu */}
-      {isMobile && mobileMenuOpen && (
-        <Box sx={{ bgcolor: '#000', px: 2, pb: 2 }}> {/* ✅ Changed background to black */}
-          <Button fullWidth component={RouterLink} to="/about" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>ABOUT</Button> {/* ✅ Changed to yellow */}
-          <Box>
-            <Button fullWidth onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>STUDENT</Button> {/* ✅ Changed to yellow */}
-            <Box sx={{ pl: 2 }}>
-              <Button fullWidth component={RouterLink} to="/student/career-test" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>Career Test</Button>
-              <Button fullWidth component={RouterLink} to="/student/career-counselling" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>Career Counselling</Button>
-              <Button fullWidth component={RouterLink} to="/student/competitive-exam" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>Competitive Exam</Button>
-              <Button fullWidth component={RouterLink} to="/student/college-counselling" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>College Counselling</Button>
-              <Button fullWidth component={RouterLink} to="/student/study-abroad" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>Study Abroad</Button>
-              <Button fullWidth component={RouterLink} to="/student/pricing" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>Pricing</Button>
-            </Box>
-          </Box>
-
-          <Box>
-            <Button fullWidth onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>PARENTS</Button> {/* ✅ Changed to yellow */}
-            <Box sx={{ pl: 2 }}>
-              <Button fullWidth component={RouterLink} to="/parents/personal-counselling" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>Personal Counselling</Button>
-              <Button fullWidth component={RouterLink} to="/parents/parenting" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>Parenting</Button>
-              <Button fullWidth component={RouterLink} to="/parents/career-counselling" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>Career Counselling</Button>
-              <Button fullWidth component={RouterLink} to="/parents/pricing" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>Pricing</Button>
-            </Box>
-          </Box>
-
-          <Button fullWidth component={RouterLink} to="/schools-colleges" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>SCHOOL & COLLEGES</Button> {/* ✅ Changed to yellow */}
-          <Button fullWidth component={RouterLink} to="/contact" onClick={() => setMobileMenuOpen(false)} sx={{ color: '#FFD700', justifyContent: 'flex-start' }}>Free career Test</Button> {/* ✅ Changed to yellow */}
-        </Box>
-      )}
+      </Container>
     </AppBar>
   );
 }

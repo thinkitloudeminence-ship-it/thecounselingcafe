@@ -1,0 +1,118 @@
+/* Chatbot container */
+.cc-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2563EB;
+  color: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* window */
+.cc-window {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  width: 320px;
+  height: 420px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* header */
+.cc-header {
+  background: #2563EB;
+  color: #fff;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+.cc-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* message area */
+.cc-body {
+  padding: 12px;
+  flex: 1;
+  overflow-y: auto;
+  background: #f7fafc;
+}
+.cc-message {
+  max-width: 80%;
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  line-height: 1.2;
+}
+.cc-bot {
+  background: #e6eefc;
+  color: #0f172a;
+  align-self: flex-start;
+}
+.cc-user {
+  background: #2563EB;
+  color: #fff;
+  align-self: flex-end;
+}
+
+/* input area */
+.cc-actions {
+  display: flex;
+  padding: 8px;
+  gap: 8px;
+  border-top: 1px solid #eee;
+}
+.cc-input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+.cc-send {
+  background: #2563EB;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* quick buttons */
+.cc-quick {
+  padding: 8px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  border-top: 1px solid #f0f0f0;
+}
+.cc-quick-btn {
+  padding: 6px 8px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
