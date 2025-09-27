@@ -1815,10 +1815,547 @@
 //   );
 // };
 
+// // export default Home;import React from 'react';
+// import { Box, Typography, Card, Grid, Container, Button, Stack, Paper, Fade, Slide, Avatar } from '@mui/material';
+// import { useNavigate } from 'react-router-dom';
+// import heroImage from './images/hero-students.jpg';
+
+// const Home = () => {
+//   const navigate = useNavigate();
+
+//   const pricingPlans = [
+//     {
+//       id: 1,
+//       title: "Psychometric Test",
+//       price: "₹999",
+//       features: [
+//         "Career Assessment (Psychometric Test)",
+//         "Career Report / Result"
+//       ],
+//       buttonText: "Choose Plan",
+//       color: "#4CAF50",
+//       popular: false
+//     },
+//     {
+//       id: 2,
+//       title: "Online Counselling",
+//       price: "₹2,999",
+//       features: [
+//         "Career Assessment (Psychometric Test)",
+//         "Report Analysis",
+//         "Online Counselling 45 minutes",
+//       ],
+//       buttonText: "Choose Plan",
+//       color: "#2196F3",
+//       popular: false
+//     },
+//     {
+//       id: 3,
+//       title: "Offline Counselling",
+//       price: "₹4,999",
+//       features: [
+//         "Career Assessment (Psychometric Test)",
+//         "Report Analysis",
+//         "Offline Counseling 1 hour",
+//         "Student + Parents Session",
+//       ],
+//       buttonText: "Choose Plan",
+//       color: "#FF9800",
+//       popular: true
+//     },
+//     {
+//       id: 4,
+//       title: "Abroad Counselling",
+//       price: "₹9,999",
+//       features: [
+//         "Career Assessment (Psychometric Test)",
+//         "Result Analysis & Research",
+//         "Details of Abroad Entrance Exams",
+//         "Course Selection Assistance",
+//         "Admission assistance for up to 1 year"
+//       ],
+//       buttonText: "Choose Plan",
+//       color: "#9C27B0",
+//       popular: false
+//     }
+//   ];
+
+//   const handlePlanClick = (planId) => {
+//     navigate(`/package/${planId}`);
+//   };
+
+//   return (
+//     <Box sx={{ width: "100%", overflow: "hidden" }}>
+
+//       {/* Hero Section - Mobile First */}
+//       <Box sx={{
+//         bgcolor: "#9e5349ff",
+//         py: { xs: 8, sm: 12, md: 15 },
+//         background: "linear-gradient(135deg, #9e5349ff 0%, #7a3a32 100%)",
+//         position: "relative",
+//         "&::before": {
+//           content: '""',
+//           position: "absolute",
+//           top: 0,
+//           left: 0,
+//           right: 0,
+//           bottom: 0,
+//           background: "radial-gradient(circle at 70% 20%, rgba(248, 232, 0, 0.1) 0%, transparent 50%)",
+//         }
+//       }}>
+//         <Container maxWidth="lg">
+//           <Grid container spacing={4} alignItems="center" sx={{ flexDirection: { xs: "column-reverse", md: "row" } }}>
+
+//             {/* Image Section - Top on Mobile */}
+//             <Grid item xs={12} md={6}>
+//               <Slide direction="left" in={true} timeout={800}>
+//                 <Box
+//                   sx={{
+//                     width: "100%",
+//                     height: { xs: 280, sm: 350, md: 550 },
+//                     borderRadius: { xs: 2, md: 4 },
+//                     overflow: "hidden",
+//                     boxShadow: "0 15px 30px rgba(238, 234, 10, 0.3)",
+//                     backgroundImage: `url(${heroImage})`,
+//                     backgroundSize: "cover",
+//                     backgroundPosition: "center",
+//                     mb: { xs: 4, md: 0 },
+//                   }}
+//                 />
+//               </Slide>
+//             </Grid>
+
+//             {/* Content Section - Bottom on Mobile */}
+//             <Grid item xs={12} md={6}>
+//               <Fade in={true} timeout={1000}>
+//                 <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+//                   <Typography
+//                     variant="h1"
+//                     sx={{
+//                       fontWeight: 800,
+//                       mb: 3,
+//                       fontSize: { xs: "2rem", sm: "2.5rem", md: "3.2rem" },
+//                       color: "#ffffff",
+//                       lineHeight: 1.2,
+//                     }}
+//                   >
+//                     Discover Your <Box component="span" sx={{ color: "#f8e800ff" }}>Potential</Box>
+//                     <br />
+//                     Design Your <Box component="span" sx={{ color: "#f8e800ff" }}>Career</Box>
+//                   </Typography>
+
+//                   <Typography
+//                     variant="h6"
+//                     sx={{
+//                       mb: 4,
+//                       color: "rgba(255,255,255,0.9)",
+//                       fontSize: { xs: "1rem", sm: "1.1rem" },
+//                       lineHeight: 1.6,
+//                       fontWeight: 400,
+//                       px: { xs: 1, md: 0 },
+//                     }}
+//                   >
+//                     Navigate the competitive world with strategic career planning. Our certified counselors and AI technology provide the edge you need for success.
+//                   </Typography>
+
+//                   {/* Features List */}
+//                   <Box sx={{ mb: 4 }}>
+//                     {["Expert Career Counselors", "Certified Professionals", "Comprehensive Career Tests"].map((feature, index) => (
+//                       <Box key={index} sx={{ 
+//                         display: "flex", 
+//                         alignItems: "center", 
+//                         mb: 2,
+//                         justifyContent: { xs: "center", md: "flex-start" }
+//                       }}>
+//                         <Box sx={{
+//                           width: 6,
+//                           height: 6,
+//                           borderRadius: "50%",
+//                           bgcolor: "#f8e800ff",
+//                           mr: 2,
+//                           flexShrink: 0
+//                         }} />
+//                         <Typography variant="body1" sx={{
+//                           fontWeight: 600,
+//                           color: "#ffffff",
+//                           fontSize: { xs: "0.9rem", sm: "1rem" },
+//                         }}>
+//                           {feature}
+//                         </Typography>
+//                       </Box>
+//                     ))}
+//                   </Box>
+
+//                   {/* Buttons */}
+//                   <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mb: 5 }}>
+//                     <Button
+//                       variant="contained"
+//                       size="large"
+//                       sx={{
+//                         bgcolor: "#f8e800ff",
+//                         color: "black",
+//                         fontWeight: 700,
+//                         px: 4,
+//                         py: 1.5,
+//                         borderRadius: 2,
+//                         fontSize: { xs: "0.9rem", sm: "1rem" },
+//                         textTransform: 'none',
+//                         minWidth: { xs: "100%", sm: "auto" },
+//                       }}
+//                     >
+//                       PSYCHOMETRIC TEST
+//                     </Button>
+//                     <Button
+//                       variant="outlined"
+//                       size="large"
+//                       sx={{
+//                         border: "2px solid #f8e800ff",
+//                         color: "#f8e800ff",
+//                         fontWeight: 700,
+//                         px: 4,
+//                         py: 1.3,
+//                         borderRadius: 2,
+//                         fontSize: { xs: "0.9rem", sm: "1rem" },
+//                         textTransform: 'none',
+//                         minWidth: { xs: "100%", sm: "auto" },
+//                       }}
+//                     >
+//                       Schedule Consultation
+//                     </Button>
+//                   </Stack>
+
+//                   {/* Stats */}
+//                   <Grid container spacing={2}>
+//                     {[
+//                       { value: "10,000+", label: "Students Guided" },
+//                       { value: "99%", label: "Success Rate" },
+//                       { value: "10+", label: "Years Experience" }
+//                     ].map((stat, index) => (
+//                       <Grid item xs={4} key={index}>
+//                         <Typography variant="h4" sx={{
+//                           fontWeight: 800,
+//                           color: "#10e63eff",
+//                           mb: 1,
+//                           fontSize: { xs: "1.5rem", sm: "1.8rem", md: "2.2rem" },
+//                         }}>
+//                           {stat.value}
+//                         </Typography>
+//                         <Typography variant="body2" sx={{
+//                           color: "#ffffff",
+//                           fontWeight: 600,
+//                           fontSize: { xs: "0.7rem", sm: "0.8rem" },
+//                           lineHeight: 1.2
+//                         }}>
+//                           {stat.label}
+//                         </Typography>
+//                       </Grid>
+//                     ))}
+//                   </Grid>
+//                 </Box>
+//               </Fade>
+//             </Grid>
+//           </Grid>
+//         </Container>
+//       </Box>
+
+//       {/* Arpana Jain Profile Section - Mobile First */}
+//       <Box sx={{
+//         py: { xs: 6, md: 8 },
+//         bgcolor: "#f8f9fa",
+//       }}>
+//         <Container maxWidth="lg">
+//           <Fade in={true} timeout={1000}>
+//             <Card sx={{
+//               p: { xs: 2, sm: 3, md: 4 },
+//               borderRadius: 2,
+//               boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
+//               background: "white",
+//             }}>
+//               <Grid container spacing={3} alignItems="center" sx={{ flexDirection: { xs: "column", md: "row" } }}>
+
+//                 {/* Profile Image - Top on Mobile */}
+//                 <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
+//                   <Avatar
+//                     sx={{
+//                       width: { xs: 150, sm: 180, md: 200 },
+//                       height: { xs: 150, sm: 180, md: 200 },
+//                       mx: "auto",
+//                       mb: 2,
+//                       border: "3px solid #5ebeb6ff"
+//                     }}
+//                     src="/path-to-arpana-image.jpg"
+//                     alt="Arpana Jain"
+//                   />
+//                   <Typography variant="h6" sx={{ fontWeight: 700, color: "#9e5349ff", fontSize: { xs: "1.2rem", md: "1.5rem" } }}>
+//                     Arpana Jain
+//                   </Typography>
+//                   <Typography variant="body2" sx={{ color: "#666", fontWeight: 600 }}>
+//                     Co-founder & Career Coach
+//                   </Typography>
+//                 </Grid>
+
+//                 {/* Profile Content - Bottom on Mobile */}
+//                 <Grid item xs={12} md={8}>
+//                   <Typography variant="body1" sx={{
+//                     lineHeight: 1.7,
+//                     color: "#333",
+//                     fontSize: { xs: "0.9rem", sm: "1rem" },
+//                     mb: 3,
+//                     textAlign: { xs: "left", md: "justify" }
+//                   }}>
+//                     A counsellor with a passion for driving career clarity to the numerous students she enthusiastically mentors.
+//                     Arpana has been involved in Teaching, Research, Consultancy and Training for the past 10 years.
+//                     She believes that every individual student and parent who interacts with her adds valuable knowledge to her life.
+//                     Packed with information & an objective standpoint towards her students' abilities & talents,
+//                     she diligently guides them on their career plans.
+//                   </Typography>
+
+//                   {/* Key Highlights */}
+//                   <Grid container spacing={1}>
+//                     {[
+//                       { icon: "⏳", label: "10+ Years Experience" },
+//                       { icon: "📚", label: "Teaching & Research Background" },
+//                       { icon: "💼", label: "Consultancy & Training" },
+//                       { icon: "👥", label: "Student & Parent Counseling" }
+//                     ].map((item, index) => (
+//                       <Grid item xs={12} sm={6} key={index}>
+//                         <Box sx={{ 
+//                           display: "flex", 
+//                           alignItems: "center", 
+//                           mb: 1.5,
+//                           p: 1,
+//                           borderRadius: 1,
+//                           bgcolor: "rgba(94, 190, 182, 0.1)"
+//                         }}>
+//                           <Box sx={{ 
+//                             display: "flex", 
+//                             alignItems: "center", 
+//                             justifyContent: "center", 
+//                             width: 32, 
+//                             height: 32, 
+//                             bgcolor: "#5ebeb6ff", 
+//                             borderRadius: "50%", 
+//                             mr: 2, 
+//                             color: "white",
+//                             fontSize: "16px",
+//                             flexShrink: 0
+//                           }}>
+//                             {item.icon}
+//                           </Box>
+//                           <Typography variant="body2" sx={{ fontWeight: 600, fontSize: { xs: "0.8rem", sm: "0.9rem" } }}>
+//                             {item.label}
+//                           </Typography>
+//                         </Box>
+//                       </Grid>
+//                     ))}
+//                   </Grid>
+//                 </Grid>
+//               </Grid>
+//             </Card>
+//           </Fade>
+//         </Container>
+//       </Box>
+
+//       {/* Pricing Section - Mobile First */}
+//       <Box sx={{
+//         py: { xs: 6, md: 8 },
+//         bgcolor: "#f8f9fa",
+//       }}>
+//         <Container maxWidth="lg">
+//           <Fade in={true} timeout={1000}>
+//             <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
+//               <Typography
+//                 variant="h2"
+//                 sx={{
+//                   fontWeight: 800,
+//                   mb: 2,
+//                   fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+//                   color: "#9e5349ff",
+//                 }}
+//               >
+//                 Affordable Career Plans
+//               </Typography>
+//               <Typography
+//                 variant="h6"
+//                 sx={{
+//                   fontWeight: 400,
+//                   fontSize: { xs: "1rem", sm: "1.1rem" },
+//                   color: "#666",
+//                   maxWidth: "600px",
+//                   mx: "auto",
+//                   lineHeight: 1.5,
+//                 }}
+//               >
+//                 Choose the perfect plan to unlock your career potential with expert guidance
+//               </Typography>
+//             </Box>
+//           </Fade>
+
+//           <Grid container spacing={2} justifyContent="center">
+//             {pricingPlans.map((plan, index) => (
+//               <Grid item xs={12} sm={6} md={3} key={plan.id}>
+//                 <Fade in={true} timeout={800} style={{ transitionDelay: `${index * 200}ms` }}>
+//                   <Card
+//                     sx={{
+//                       height: "100%",
+//                       background: "white",
+//                       borderRadius: 2,
+//                       overflow: "hidden",
+//                       boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
+//                       transition: "all 0.3s ease",
+//                       border: plan.popular ? "2px solid #FF9800" : "1px solid #e0e0e0",
+//                       "&:hover": {
+//                         transform: "translateY(-5px)",
+//                         boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+//                       },
+//                     }}
+//                     onClick={() => handlePlanClick(plan.id)}
+//                   >
+//                     {/* Popular Badge */}
+//                     {plan.popular && (
+//                       <Box
+//                         sx={{
+//                           position: "absolute",
+//                           top: 0,
+//                           right: 0,
+//                           bgcolor: "#FF9800",
+//                           color: "white",
+//                           px: 2,
+//                           py: 0.5,
+//                           borderBottomLeftRadius: 8,
+//                           fontSize: "0.7rem",
+//                           fontWeight: 700,
+//                           zIndex: 2,
+//                         }}
+//                       >
+//                         POPULAR
+//                       </Box>
+//                     )}
+
+//                     {/* Header */}
+//                     <Box
+//                       sx={{
+//                         background: `linear-gradient(135deg, ${plan.color} 0%, ${plan.color}CC 100%)`,
+//                         py: 3,
+//                         px: 2,
+//                         textAlign: "center",
+//                       }}
+//                     >
+//                       <Typography
+//                         variant="h6"
+//                         sx={{
+//                           fontWeight: 700,
+//                           color: "white",
+//                           fontSize: { xs: "1.1rem", sm: "1.2rem" },
+//                           mb: 1,
+//                         }}
+//                       >
+//                         {plan.title}
+//                       </Typography>
+//                       <Typography
+//                         variant="h4"
+//                         sx={{
+//                           fontWeight: 800,
+//                           color: "white",
+//                           fontSize: { xs: "1.8rem", sm: "2rem" },
+//                         }}
+//                       >
+//                         {plan.price}
+//                       </Typography>
+//                       <Typography
+//                         variant="caption"
+//                         sx={{
+//                           color: "rgba(255,255,255,0.9)",
+//                           fontWeight: 500,
+//                         }}
+//                       >
+//                         One-time payment
+//                       </Typography>
+//                     </Box>
+
+//                     {/* Features */}
+//                     <Box sx={{ p: 2 }}>
+//                       {plan.features.map((feature, featureIndex) => (
+//                         <Box key={featureIndex} sx={{ display: "flex", alignItems: "flex-start", mb: 1.5 }}>
+//                           <Box sx={{
+//                             width: 18,
+//                             height: 18,
+//                             borderRadius: "50%",
+//                             bgcolor: plan.color,
+//                             mr: 1.5,
+//                             mt: 0.2,
+//                             flexShrink: 0,
+//                             display: "flex",
+//                             alignItems: "center",
+//                             justifyContent: "center",
+//                             fontSize: "10px",
+//                             color: "white",
+//                             fontWeight: "bold",
+//                           }}>
+//                             ✓
+//                           </Box>
+//                           <Typography variant="body2" sx={{
+//                             fontWeight: 500,
+//                             color: "#333",
+//                             fontSize: "0.85rem",
+//                             lineHeight: 1.3,
+//                           }}>
+//                             {feature}
+//                           </Typography>
+//                         </Box>
+//                       ))}
+
+//                       {/* Button */}
+//                       <Button
+//                         variant="contained"
+//                         fullWidth
+//                         size="small"
+//                         sx={{
+//                           bgcolor: plan.color,
+//                           color: "white",
+//                           fontWeight: 700,
+//                           py: 1,
+//                           borderRadius: 1,
+//                           fontSize: "0.9rem",
+//                           textTransform: 'none',
+//                           mt: 2,
+//                         }}
+//                       >
+//                         {plan.buttonText}
+//                       </Button>
+//                     </Box>
+//                   </Card>
+//                 </Fade>
+//               </Grid>
+//             ))}
+//           </Grid>
+
+//           {/* Additional Info */}
+//           <Fade in={true} timeout={1000}>
+//             <Box sx={{ textAlign: "center", mt: 4 }}>
+//               <Typography
+//                 variant="body2"
+//                 sx={{
+//                   color: "#666",
+//                   fontStyle: 'italic',
+//                   fontSize: { xs: "0.9rem", sm: "1rem" },
+//                 }}
+//               >
+//                 All plans include personalized attention and comprehensive support
+//               </Typography>
+//             </Box>
+//           </Fade>
+//         </Container>
+//       </Box>
+//     </Box>
+//   );
+// };
+
 // export default Home;
 
+
 import React from 'react';
-import { Box, Typography, Card, Grid, Container, Button, Stack, Paper, Fade, Slide, Avatar } from '@mui/material';
+import { Box, Typography, Card, Grid, Container, Button, Stack, Paper, Fade, Slide, Avatar, Divider, Chip, } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import heroImage from './images/hero-students.jpg';
 
@@ -1835,7 +2372,7 @@ const Home = () => {
         "Career Report / Result"
       ],
       buttonText: "Choose Plan",
-      color: "#4CAF50", // Green
+      color: "#4CAF50",
       popular: false
     },
     {
@@ -1848,7 +2385,7 @@ const Home = () => {
         "Online Counselling 45 minutes",
       ],
       buttonText: "Choose Plan",
-      color: "#2196F3", // Blue
+      color: "#2196F3",
       popular: false
     },
     {
@@ -1862,7 +2399,7 @@ const Home = () => {
         "Student + Parents Session",
       ],
       buttonText: "Choose Plan",
-      color: "#FF9800", // Orange
+      color: "#FF9800",
       popular: true
     },
     {
@@ -1877,7 +2414,7 @@ const Home = () => {
         "Admission assistance for up to 1 year"
       ],
       buttonText: "Choose Plan",
-      color: "#9C27B0", // Purple
+      color: "#9C27B0",
       popular: false
     }
   ];
@@ -1886,21 +2423,13 @@ const Home = () => {
     navigate(`/package/${planId}`);
   };
 
-  // Color Combinations for Reference:
-  // Primary: #9e5349ff (Burgundy)
-  // Secondary: #f8e800ff (Yellow)
-  // Accent 1: #5ebeb6ff (Teal)
-  // Accent 2: #f3ad17ff (Gold)
-  // Accent 3: #10e63eff (Green)
-  // Neutral: #f8f9fa (Light Gray)
-
   return (
     <Box sx={{ width: "100%", overflow: "hidden" }}>
 
-      {/* Hero Section - Enhanced Red Theme */}
+      {/* Hero Section - Fixed for Mobile */}
       <Box sx={{
         bgcolor: "#9e5349ff",
-        py: 15,
+        py: { xs: 6, sm: 10, md: 15 },
         background: "linear-gradient(135deg, #9e5349ff 0%, #7a3a32 100%)",
         position: "relative",
         "&::before": {
@@ -1914,115 +2443,167 @@ const Home = () => {
         }
       }}>
         <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
-            {/* Left Content */}
+          <Grid container spacing={4} alignItems="center" sx={{ flexDirection: { xs: "column-reverse", md: "row" } }}>
+
+            {/* Image Section - Fixed for Mobile */}
+            <Grid item xs={12} md={6}>
+              <Slide direction="left" in={true} timeout={800}>
+                <Box
+                  sx={{
+                    width: { xs: "auto", sm: 350, md: "auto" },
+                    height: { xs: "auto", sm: 350, md: 600 },
+                    borderRadius: { xs: 2, md: 4 },
+                    overflow: "hidden",
+                    boxShadow: "0 15px 30px rgba(238, 234, 10, 0.3)",
+                    mb: { xs: 3, md: 0 },
+                  }}
+                >
+                  <img
+                    src={heroImage}
+                    alt="Career Guidance"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block"
+                    }}
+                  />
+                </Box>
+              </Slide>
+            </Grid>
+
+            {/* Content Section */}
             <Grid item xs={12} md={6}>
               <Fade in={true} timeout={1000}>
-                <Box>
+                <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
                   <Typography
-                    variant="h3"
+                    variant="h1"
                     sx={{
                       fontWeight: 800,
-                      mb: 3,
-                      fontSize: { xs: "2.2rem", md: "3.2rem" },
+                      mb: 2,
+                      fontSize: { xs: "1.5rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
                       color: "#ffffff",
-                      lineHeight: 1.1,
-                      textShadow: "0 2px 10px rgba(0,0,0,0.3)",
+                      lineHeight: 1.2,
+                      textAlign: { xs: "center", sm: "left" }
                     }}
                   >
-                    Discover Your <span style={{ color: "#f8e800ff" }}>Potential</span> <br />
-                    Design Your <span style={{ color: "#f8e800ff" }}>Career</span>
+                    Discover Your <Box component="span" sx={{ color: "#f8e800ff" }}>Potential</Box>
+                    <br />
+                    Design Your <Box component="span" sx={{ color: "#f8e800ff" }}>Career</Box>
                   </Typography>
 
                   <Typography
                     variant="h6"
                     sx={{
-                      mb: 4,
+                      mb: 3,
                       color: "rgba(255,255,255,0.9)",
-                      fontSize: "1.2rem",
-                      lineHeight: 1.7,
+                      fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.2rem" },
+                      lineHeight: 1.6,
                       fontWeight: 400,
-                      maxWidth: "90%",
+                      px: { xs: 1, md: 0 },
                     }}
                   >
                     Navigate the competitive world with strategic career planning. Our certified counselors and AI technology provide the edge you need for success.
                   </Typography>
 
-                  {/* Enhanced Features List */}
-                  <Box sx={{ mb: 4 }}>
-                    {["Expert Career Counselors", "Certified Professionals", "Comprehensive Career Tests"].map((feature, index) => (
-                      <Box key={index} sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                  {/* Features List */}
+                  <Box sx={{ mb: 3 }}>
+                    {[
+                      {
+                        text: "Expert Career Counselors",
+                        icon: "👨‍💼" // Alternative: "🎓" or "💼"
+                      },
+                      {
+                        text: "Certified Professionals",
+                        icon: "✅" // Alternative: "🏅" or "⭐"
+                      },
+                      {
+                        text: "Comprehensive Career Tests",
+                        icon: "📊" // Alternative: "🔍" or "📝"
+                      }
+                    ].map((feature, index) => (
+                      <Box key={index} sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        mb: 1.5,
+                        justifyContent: { xs: "flex-start", md: "flex-start" }
+                      }}>
+                        {/* Icon Container */}
                         <Box sx={{
-                          width: 8,
-                          height: 8,
+                          width: 32,
+                          height: 32,
                           borderRadius: "50%",
-                          bgcolor: "#f8e800ff",
+                          bgcolor: "rgba(248, 232, 0, 0.2)",
                           mr: 2,
-                          boxShadow: "0 0 10px #f8e800ff"
-                        }} />
+                          flexShrink: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontSize: "1.2rem"
+                        }}>
+                          {feature.icon}
+                        </Box>
+
+                        {/* Text */}
                         <Typography variant="body1" sx={{
                           fontWeight: 600,
                           color: "#ffffff",
-                          fontSize: "1.1rem",
-                          textShadow: "0 1px 2px rgba(0,0,0,0.3)"
+                          fontSize: { xs: "0.85rem", sm: "1rem" },
                         }}>
-                          {feature}
+                          {feature.text}
                         </Typography>
                       </Box>
                     ))}
                   </Box>
 
-                  {/* Enhanced Buttons */}
-                  <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mb: 6 }}>
+                  {/* Buttons */}
+                  <Stack direction="row" spacing={2} sx={{ mb: 4, flexWrap: 'wrap' }}>
                     <Button
                       variant="contained"
+                      size="large"
                       sx={{
                         bgcolor: "#f8e800ff",
                         color: "black",
-                        fontWeight: 800,
-                        px: 5,
-                        py: 1.8,
-                        borderRadius: 3,
-                        fontSize: "1.1rem",
+                        fontWeight: 700,
+                        px: { xs: 2, sm: 4 },
+                        py: 1.5,
+                        borderRadius: 2,
+                        fontSize: { xs: "0.85rem", sm: "1rem" },
                         textTransform: 'none',
-                        boxShadow: "0 8px 20px rgba(248, 232, 0, 0.4)",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          bgcolor: "#1be700ff",
-                          transform: "translateY(-3px)",
-                          boxShadow: "0 12px 25px rgba(27, 231, 0, 0.5)",
-                        },
+                        minWidth: { xs: "calc(50% - 8px)", sm: "auto" },
+                        flex: { xs: "1 1 calc(50% - 8px)", sm: "none" },
+                        '&:hover': {
+                          bgcolor: "#e6d100",
+                        }
                       }}
                     >
                       PSYCHOMETRIC TEST
                     </Button>
                     <Button
                       variant="outlined"
+                      size="large"
                       sx={{
                         border: "2px solid #f8e800ff",
                         color: "#f8e800ff",
-                        fontWeight: 800,
-                        px: 5,
-                        py: 1.6,
-                        borderRadius: 3,
-                        fontSize: "1.1rem",
+                        fontWeight: 700,
+                        px: { xs: 2, sm: 4 },
+                        py: 1.3,
+                        borderRadius: 2,
+                        fontSize: { xs: "0.85rem", sm: "1rem" },
                         textTransform: 'none',
-                        background: "rgba(248, 232, 0, 0.1)",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          bgcolor: "#f8e800ff",
-                          color: "black",
-                          transform: "translateY(-3px)",
-                          boxShadow: "0 8px 20px rgba(248, 232, 0, 0.4)",
-                        },
+                        minWidth: { xs: "calc(50% - 8px)", sm: "auto" },
+                        flex: { xs: "1 1 calc(50% - 8px)", sm: "none" },
+                        '&:hover': {
+                          border: "2px solid #f8e800ff",
+                          bgcolor: "rgba(248, 232, 0, 0.1)",
+                        }
                       }}
                     >
                       Schedule Consultation
                     </Button>
                   </Stack>
-
-                  {/* Enhanced Stats */}
-                  <Grid container spacing={4} sx={{ textAlign: "center" }}>
+                  {/* Stats */}
+                  <Grid container spacing={2}>
                     {[
                       { value: "10,000+", label: "Students Guided" },
                       { value: "99%", label: "Success Rate" },
@@ -2030,19 +2611,18 @@ const Home = () => {
                     ].map((stat, index) => (
                       <Grid item xs={4} key={index}>
                         <Typography variant="h4" sx={{
-                          fontWeight: 900,
+                          fontWeight: 800,
                           color: "#10e63eff",
-                          mb: 1,
-                          fontSize: "2.8rem",
-                          textShadow: "0 2px 8px rgba(16, 230, 62, 0.4)"
+                          mb: 0.5,
+                          fontSize: { xs: "1.3rem", sm: "1.8rem", md: "2rem" },
                         }}>
                           {stat.value}
                         </Typography>
                         <Typography variant="body2" sx={{
                           color: "#ffffff",
-                          fontWeight: 700,
-                          fontSize: "1rem",
-                          letterSpacing: "0.5px"
+                          fontWeight: 600,
+                          fontSize: { xs: "0.65rem", sm: "0.75rem", md: "0.8rem" },
+                          lineHeight: 1.2
                         }}>
                           {stat.label}
                         </Typography>
@@ -2052,373 +2632,484 @@ const Home = () => {
                 </Box>
               </Fade>
             </Grid>
-
-            {/* Right Image */}
-            <Grid item xs={12} md={6}>
-              <Slide direction="left" in={true} timeout={800}>
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: { xs: 400, md: 550 },
-                    borderRadius: 4,
-                    overflow: "hidden",
-                    boxShadow: "0 25px 50px rgba(238, 234, 10, 0.3)",
-                    backgroundImage: `url(${heroImage})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    position: "relative",
-                    "&::before": {
-                      content: '""',
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: "linear-gradient(45deg, rgba(158, 83, 73, 0.1) 0%, transparent 50%)",
-                      zIndex: 1,
-                    }
-                  }}
-                />
-              </Slide>
-            </Grid>
           </Grid>
         </Container>
       </Box>
 
-      {/* Arpana Jain Profile Section */}
-      <Box sx={{
-        py: 8,
-        bgcolor: "#f8f9fa",
-        background: "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
-      }}>
-        <Container maxWidth="lg">
-          <Fade in={true} timeout={1000}>
-            <Card sx={{
-              p: { xs: 3, md: 4 },
-              borderRadius: 3,
-              boxShadow: "0 15px 40px rgba(0,0,0,0.1)",
-              background: "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
-              border: "1px solid rgba(0,0,0,0.05)",
-            }}>
-              <Grid container spacing={4} alignItems="center">
-                {/* Profile Image */}
-                <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
-                  <Avatar
-                    sx={{
-                      width: 200,
-                      height: 200,
-                      mx: "auto",
-                      mb: 2,
-                      boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-                      border: "4px solid #5ebeb6ff"
-                    }}
-                    src="/path-to-arpana-image.jpg" // Add your image path here
-                    alt="Arpana Jain"
-                  />
-                  <Typography variant="h5" sx={{ fontWeight: 700, color: "#9e5349ff" }}>
-                    Arpana Jain
-                  </Typography>
-                  <Typography variant="body1" sx={{ color: "#666", fontWeight: 600 }}>
-                    Co-founder & Career Coach
-                  </Typography>
-                </Grid>
-
-                {/* Profile Content */}
-                <Grid item xs={12} md={8}>
-                  <Typography variant="body1" sx={{
-                    lineHeight: 1.8,
-                    color: "#333",
-                    fontSize: "1.1rem",
-                    mb: 3,
-                    textAlign: "justify"
-                  }}>
-                    A counsellor with a passion for driving career clarity to the numerous students she enthusiastically mentors.
-                    Arpana has been involved in Teaching, Research, Consultancy and Training for the past 10 years.
-                    She believes that every individual student and parent who interacts with her adds valuable knowledge to her life.
-                    Packed with information & an objective standpoint towards her students' abilities & talents,
-                    she diligently guides them on their career plans.
-                  </Typography>
-
-                  {/* Key Highlights with Icons */}
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6}>
-                      <Box sx={{ display: "flex", alignItems: "center", mb: 2, p: 1.5, borderRadius: 2, bgcolor: "rgba(94, 190, 182, 0.1)" }}>
-                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, bgcolor: "#5ebeb6ff", borderRadius: "50%", mr: 2, color: "white" }}>
-                          <span style={{ fontSize: "20px" }}>⏳</span>
-                        </Box>
-                        <Box>
-                          <Typography variant="body2" sx={{ fontWeight: 600, color: "#5ebeb6ff", fontSize: "0.7rem", mb: 0.5 }}>DEMO</Typography>
-                          <Typography variant="body2" sx={{ fontWeight: 600 }}>10+ Years Experience</Typography>
-                        </Box>
-                      </Box>
-                    </Grid>
-
-                    <Grid item xs={12} sm={6}>
-                      <Box sx={{ display: "flex", alignItems: "center", mb: 2, p: 1.5, borderRadius: 2, bgcolor: "rgba(94, 190, 182, 0.1)" }}>
-                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, bgcolor: "#5ebeb6ff", borderRadius: "50%", mr: 2, color: "white" }}>
-                          <span style={{ fontSize: "20px" }}>📚</span>
-                        </Box>
-                        <Box>
-                          <Typography variant="body2" sx={{ fontWeight: 600, color: "#5ebeb6ff", fontSize: "0.7rem", mb: 0.5 }}>DEMO</Typography>
-                          <Typography variant="body2" sx={{ fontWeight: 600 }}>Teaching & Research Background</Typography>
-                        </Box>
-                      </Box>
-                    </Grid>
-
-                    <Grid item xs={12} sm={6}>
-                      <Box sx={{ display: "flex", alignItems: "center", mb: 2, p: 1.5, borderRadius: 2, bgcolor: "rgba(94, 190, 182, 0.1)" }}>
-                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, bgcolor: "#5ebeb6ff", borderRadius: "50%", mr: 2, color: "white" }}>
-                          <span style={{ fontSize: "20px" }}>💼</span>
-                        </Box>
-                        <Box>
-                          <Typography variant="body2" sx={{ fontWeight: 600, color: "#5ebeb6ff", fontSize: "0.7rem", mb: 0.5 }}>DEMO</Typography>
-                          <Typography variant="body2" sx={{ fontWeight: 600 }}>Consultancy & Training</Typography>
-                        </Box>
-                      </Box>
-                    </Grid>
-
-                    <Grid item xs={12} sm={6}>
-                      <Box sx={{ display: "flex", alignItems: "center", mb: 2, p: 1.5, borderRadius: 2, bgcolor: "rgba(94, 190, 182, 0.1)" }}>
-                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, bgcolor: "#5ebeb6ff", borderRadius: "50%", mr: 2, color: "white" }}>
-                          <span style={{ fontSize: "20px" }}>👥</span>
-                        </Box>
-                        <Box>
-                          <Typography variant="body2" sx={{ fontWeight: 600, color: "#5ebeb6ff", fontSize: "0.7rem", mb: 0.5 }}>DEMO</Typography>
-                          <Typography variant="body2" sx={{ fontWeight: 600 }}>Student & Parent Counseling</Typography>
-                        </Box>
-                      </Box>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Card>
-          </Fade>
-        </Container>
-      </Box>
-
-      {/* Enhanced Pricing Section - FIXED SIZING */}
-      <Box sx={{
-        py: 10,
-        bgcolor: "#f8f9fa",
-        background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
+    {/* Vibha Gandhi Profile Section */}
+<Box
+  sx={{
+    py: { xs: 3, md: 8 }, // Reduced mobile padding
+    bgcolor: "linear-gradient(135deg, #fffce6 0%, #ffffff 100%)",
+  }}
+>
+  <Container maxWidth="lg">
+    <Card
+      sx={{
+        p: { xs: 2, sm: 4, md: 5 }, // Reduced mobile padding
+        borderRadius: 3, // Slightly smaller radius
+        boxShadow: "0 5px 20px rgba(0,0,0,0.08)", // Lighter shadow
+        background: "white",
+        overflow: "hidden",
         position: "relative",
-      }}>
-        <Container maxWidth="lg">
-          <Fade in={true} timeout={1000}>
-            <Typography
-              variant="h2"
-              align="center"
+      }}
+    >
+      {/* Decorative Highlight */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: -30, // Smaller decorative element
+          right: -30,
+          width: 80,
+          height: 80,
+          bgcolor: "#f8e800ff",
+          borderRadius: "50%",
+          opacity: 0.1, // More subtle
+        }}
+      />
+
+      <Grid container spacing={3} alignItems="center"> {/* Reduced spacing */}
+        {/* Left Section: Profile Image & Info */}
+        <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
+          <Avatar
+            sx={{
+              width: { xs: 100, sm: 150, md: 180 }, // Smaller mobile avatar
+              height: { xs: 100, sm: 150, md: 180 },
+              mx: "auto",
+              mb: 1.5, // Reduced margin
+              border: "4px solid #f8e800ff", // Thinner border
+              boxShadow: "0 3px 15px rgba(0,0,0,0.1)", // Lighter shadow
+            }}
+            src="/path-to-vibha-image.jpg"
+            alt="Vibha Gandhi"
+          >
+            VG
+          </Avatar>
+
+          <Typography
+            variant="h6" // Changed from h5 to h6 for mobile
+            sx={{ 
+              fontWeight: 700, 
+              color: "#222", 
+              mb: 0.5,
+              fontSize: { xs: "1.2rem", sm: "1.5rem" } // Smaller font
+            }}
+          >
+            Vibha Gandhi
+          </Typography>
+
+          {/* Rating */}
+          <Box sx={{ display: "flex", justifyContent: "center", mb: 0.5 }}>
+            {[...Array(5)].map((_, i) => (
+              <Box
+                key={i}
+                sx={{ 
+                  color: "#ffc107", 
+                  fontSize: { xs: "1rem", sm: "1.3rem" }, // Smaller stars
+                  mx: 0.2 
+                }}
+              >
+                ★
+              </Box>
+            ))}
+          </Box>
+          <Typography variant="body2" sx={{ 
+            color: "#666", 
+            mb: 1,
+            fontSize: { xs: "0.75rem", sm: "0.9rem" } // Smaller text
+          }}>
+            ⭐ 381 Reviews
+          </Typography>
+
+          <Typography
+            variant="body2"
+            sx={{ 
+              color: "#444", 
+              fontWeight: 500, 
+              lineHeight: 1.4,
+              fontSize: { xs: "0.75rem", sm: "0.9rem" } // Smaller text
+            }}
+          >
+            Certified Career Counselor & NLP Practitioner, Indore
+          </Typography>
+        </Grid>
+
+        {/* Right Section: Details */}
+        <Grid item xs={12} md={8}>
+          {/* Location & Tags */}
+          <Stack
+            direction="row"
+            flexWrap="wrap"
+            spacing={0.5} // Reduced spacing
+            sx={{ mb: 2 }} // Reduced margin
+          >
+            <Chip
+              label="Indore"
+              size="small" // Smaller chips
               sx={{
-                fontWeight: 800,
-                mb: 2,
-                fontSize: { xs: "2.5rem", md: "3.5rem" },
-                color: "#9e5349ff",
-                textShadow: "0 2px 10px rgba(158, 83, 73, 0.2)",
+                bgcolor: "#fff8cc",
+                color: "#333",
+                fontWeight: 600,
+                fontSize: { xs: "0.7rem", sm: "0.9rem" },
+                height: { xs: 24, sm: 32 }
+              }}
+            />
+            <Chip
+              label="Professionals | Students"
+              size="small"
+              sx={{
+                bgcolor: "#fff8cc",
+                color: "#333",
+                fontWeight: 600,
+                fontSize: { xs: "0.7rem", sm: "0.9rem" },
+                height: { xs: 24, sm: 32 }
+              }}
+            />
+          </Stack>
+
+          {/* Experience & Sessions */}
+          <Stack
+            direction={{ xs: "column", sm: "row" }} // Stack vertically on mobile
+            spacing={1} // Reduced spacing
+            sx={{ mb: 2 }}
+          >
+            <Typography variant="body2" sx={{ 
+              fontWeight: 600, 
+              color: "#333",
+              fontSize: { xs: "0.8rem", sm: "1rem" }
+            }}>
+              🏆 15+ Years Experience
+            </Typography>
+            <Typography variant="body2" sx={{ 
+              fontWeight: 600, 
+              color: "#333",
+              fontSize: { xs: "0.8rem", sm: "1rem" }
+            }}>
+              👩‍💻 1441 Sessions
+            </Typography>
+          </Stack>
+
+          {/* Availability */}
+          <Box
+            sx={{
+              mb: 2, // Reduced margin
+              p: 1.5, // Reduced padding
+              bgcolor: "#fafafa",
+              border: "1px solid #eee",
+              borderRadius: 1.5, // Smaller radius
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{ 
+                fontWeight: 600, 
+                color: "#333", 
+                mb: 0.5,
+                fontSize: { xs: "0.8rem", sm: "0.9rem" }
               }}
             >
-              Affordable Career Plans
+              📅 Available: Wed, 9AM – 6PM
             </Typography>
-          </Fade>
-
-          <Fade in={true} timeout={1000}>
             <Typography
-              variant="h5"
-              align="center"
+              variant="body2"
               sx={{
-                fontWeight: 400,
-                mb: 8,
-                fontSize: { xs: "1.2rem", md: "1.5rem" },
-                color: "#666",
-                maxWidth: "600px",
-                mx: "auto",
-                lineHeight: 1.6,
+                color: "#f8e800ff",
+                fontWeight: 600,
+                cursor: "pointer",
+                fontSize: { xs: "0.75rem", sm: "0.9rem" }
               }}
             >
-              Choose the perfect plan to unlock your career potential with expert guidance
+              See More ➤
             </Typography>
-          </Fade>
+          </Box>
 
-          <Grid container spacing={3} justifyContent="center" alignItems="stretch">
-            {pricingPlans.map((plan, index) => (
-              <Grid item xs={12} sm={6} md={3} key={plan.id} sx={{ display: 'flex' }}>
-                <Fade in={true} timeout={800} style={{ transitionDelay: `${index * 200}ms` }}>
-                  <Card
+          {/* Services */}
+          <Grid container spacing={1} sx={{ mb: 3 }}> {/* Reduced spacing and margin */}
+            {[
+              "Two Detailed Counselling Sessions",
+              "1 Hour Counselling Duration",
+              "22+ Pages Career Report",
+              "6 Month Post Counselling Support",
+              "Last Counselling: 2 days ago",
+            ].map((service, index) => (
+              <Grid item xs={12} sm={6} key={index}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    p: 0.5, // Reduced padding
+                  }}
+                >
+                  <Box
                     sx={{
-                      width: '100%',
-                      minHeight: { xs: 'auto', md: 520 },
-                      background: "white",
-                      borderRadius: 3,
-                      position: "relative",
-                      overflow: "hidden",
-                      boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                      transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                      cursor: "pointer",
+                      width: 16, // Smaller icon
+                      height: 16,
+                      borderRadius: "50%",
+                      bgcolor: "#f8e800ff",
                       display: "flex",
-                      flexDirection: "column",
-                      border: plan.popular ? "2px solid #FF9800" : "2px solid transparent",
-                      "&:hover": {
-                        transform: "translateY(-10px) scale(1.02)",
-                        boxShadow: `0 20px 40px ${plan.color}40`,
-                      },
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "10px", // Smaller checkmark
+                      fontWeight: "bold",
+                      mr: 1, // Reduced margin
+                      flexShrink: 0
                     }}
-                    onClick={() => handlePlanClick(plan.id)}
                   >
-                    {/* Popular Badge */}
-                    {plan.popular && (
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          top: 0,
-                          right: 0,
-                          bgcolor: "#FF9800",
-                          color: "white",
-                          px: 3,
-                          py: 0.5,
-                          borderBottomLeftRadius: 12,
-                          fontSize: "0.8rem",
-                          fontWeight: 700,
-                          zIndex: 2,
-                        }}
-                      >
-                        MOST POPULAR
-                      </Box>
-                    )}
-
-                    {/* Header with colored accent */}
-                    <Box
-                      sx={{
-                        background: `linear-gradient(135deg, ${plan.color} 0%, ${plan.color}CC 100%)`,
-                        py: 3,
-                        px: 2,
-                        textAlign: "center",
-                        position: "relative",
-                        flexShrink: 0,
-                      }}
-                    >
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          fontWeight: 800,
-                          color: "white",
-                          fontSize: { xs: "1.3rem", md: "1.5rem" },
-                          textShadow: "0 1px 2px rgba(0,0,0,0.2)",
-                        }}
-                      >
-                        {plan.title}
-                      </Typography>
-                      <Typography
-                        variant="h4"
-                        sx={{
-                          fontWeight: 900,
-                          color: "white",
-                          mt: 1,
-                          fontSize: { xs: "2rem", md: "2.5rem" },
-                          textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                        }}
-                      >
-                        {plan.price}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: "rgba(255,255,255,0.9)",
-                          fontWeight: 500,
-                          mt: 0.5,
-                        }}
-                      >
-                        One-time payment
-                      </Typography>
-                    </Box>
-
-                    {/* Features List */}
-                    <Box sx={{
-                      p: 3,
-                      flexGrow: 1,
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: 'space-between'
-                    }}>
-                      <Box>
-                        {plan.features.map((feature, featureIndex) => (
-                          <Box key={featureIndex} sx={{ display: "flex", alignItems: "flex-start", mb: 2 }}>
-                            <Box sx={{
-                              width: 20,
-                              height: 20,
-                              borderRadius: "50%",
-                              bgcolor: plan.color,
-                              mr: 2,
-                              mt: 0.2,
-                              flexShrink: 0,
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              fontSize: "12px",
-                              color: "white",
-                              fontWeight: "bold",
-                            }}>
-                              ✓
-                            </Box>
-                            <Typography variant="body1" sx={{
-                              fontWeight: 500,
-                              color: "#333",
-                              fontSize: "0.95rem",
-                              lineHeight: 1.4,
-                            }}>
-                              {feature}
-                            </Typography>
-                          </Box>
-                        ))}
-                      </Box>
-
-                      {/* Button */}
-                      <Button
-                        variant="contained"
-                        fullWidth
-                        sx={{
-                          bgcolor: plan.color,
-                          color: "white",
-                          fontWeight: 700,
-                          py: 1.5,
-                          borderRadius: 2,
-                          fontSize: "1rem",
-                          textTransform: 'none',
-                          boxShadow: `0 5px 15px ${plan.color}80`,
-                          transition: "all 0.3s ease",
-                          mt: 2,
-                          "&:hover": {
-                            bgcolor: plan.color,
-                            transform: "translateY(-2px)",
-                            boxShadow: `0 8px 20px ${plan.color}80`,
-                          },
-                        }}
-                      >
-                        {plan.buttonText}
-                      </Button>
-                    </Box>
-                  </Card>
-                </Fade>
+                    ✓
+                  </Box>
+                  <Typography
+                    variant="body2"
+                    sx={{ 
+                      fontWeight: 600, 
+                      color: "#444",
+                      fontSize: { xs: "0.75rem", sm: "0.85rem" }, // Smaller text
+                      lineHeight: 1.3
+                    }}
+                  >
+                    {service}
+                  </Typography>
+                </Box>
               </Grid>
             ))}
           </Grid>
 
-          {/* Additional Info */}
-          <Fade in={true} timeout={1000} style={{ transitionDelay: "800ms" }}>
-            <Box sx={{ textAlign: "center", mt: 6 }}>
-              <Typography
-                variant="body1"
+          {/* Book Button */}
+          <Button
+            variant="contained"
+            fullWidth
+            sx={{
+              bgcolor: "#f8e800ff",
+              color: "black",
+              fontWeight: 700,
+              py: 1, // Reduced padding
+              borderRadius: 1.5, // Smaller radius
+              fontSize: { xs: "0.9rem", sm: "1rem" }, // Smaller font
+              textTransform: "none",
+              boxShadow: "0 3px 10px rgba(248,232,0,0.3)", // Lighter shadow
+              "&:hover": {
+                bgcolor: "#e6d100",
+              },
+            }}
+          >
+            🚀 Book Appointment
+          </Button>
+        </Grid>
+      </Grid>
+    </Card>
+  </Container>
+</Box>
+
+
+      {/* Pricing Section */}
+<Box sx={{
+  py: { xs: 5, md: 8 },
+  bgcolor: "#f8f9fa",
+}}>
+  <Container maxWidth="lg">
+    <Fade in={true} timeout={1000}>
+      <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
+        <Typography
+          variant="h2"
+          sx={{
+            fontWeight: 800,
+            mb: 2,
+            fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.7rem" },
+            color: "#9e5349ff",
+          }}
+        >
+          Affordable Career Plans
+        </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 400,
+            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+            color: "#666",
+            maxWidth: "600px",
+            mx: "auto",
+            lineHeight: 1.5,
+          }}
+        >
+          Choose the perfect plan to unlock your career potential with expert guidance
+        </Typography>
+      </Box>
+    </Fade>
+
+    <Grid container spacing={2} justifyContent="center" alignItems="stretch">
+      {pricingPlans.map((plan, index) => (
+        <Grid item xs={6} sm={6} md={6} lg={3} key={plan.id}> {/* Changed xs={12} to xs={6} */}
+          <Fade in={true} timeout={800} style={{ transitionDelay: `${index * 200}ms` }}>
+            <Card
+              sx={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                background: "white",
+                borderRadius: 2,
+                overflow: "hidden",
+                boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
+                transition: "all 0.3s ease",
+                border: plan.popular ? "2px solid #FF9800" : "1px solid #e0e0e0",
+                "&:hover": {
+                  transform: "translateY(-5px)",
+                  boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+                },
+                cursor: "pointer",
+              }}
+              onClick={() => handlePlanClick(plan.id)}
+            >
+              {/* Popular Badge */}
+              {plan.popular && (
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    right: 0,
+                    bgcolor: "#FF9800",
+                    color: "white",
+                    px: 2,
+                    py: 0.5,
+                    borderBottomLeftRadius: 8,
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                    zIndex: 2,
+                  }}
+                >
+                  POPULAR
+                </Box>
+              )}
+
+              {/* Header */}
+              <Box
                 sx={{
-                  color: "#666",
-                  fontStyle: 'italic',
-                  fontSize: "1.1rem",
-                  mb: 2,
+                  background: `linear-gradient(135deg, ${plan.color} 0%, ${plan.color}CC 100%)`,
+                  py: 3,
+                  px: 2,
+                  textAlign: "center",
                 }}
               >
-                All plans include personalized attention and comprehensive support
-              </Typography>
-            </Box>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 700,
+                    color: "white",
+                    fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.2rem" }, // Adjusted font size
+                    mb: 1,
+                  }}
+                >
+                  {plan.title}
+                </Typography>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontWeight: 800,
+                    color: "white",
+                    fontSize: { xs: "1.4rem", sm: "1.8rem", md: "2rem" }, // Adjusted font size
+                  }}
+                >
+                  {plan.price}
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    color: "rgba(255,255,255,0.9)",
+                    fontWeight: 500,
+                    fontSize: { xs: "0.65rem", sm: "0.8rem" }, // Adjusted font size
+                  }}
+                >
+                  One-time payment
+                </Typography>
+              </Box>
+
+              {/* Features */}
+              <Box sx={{
+                p: 2,
+                flex: 1,
+                display: "flex",
+                flexDirection: "column"
+              }}>
+                <Box sx={{ flex: 1 }}>
+                  {plan.features.map((feature, featureIndex) => (
+                    <Box key={featureIndex} sx={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      mb: 1.5
+                    }}>
+                      <Box sx={{
+                        width: 16, // Slightly smaller for mobile
+                        height: 16,
+                        borderRadius: "50%",
+                        bgcolor: plan.color,
+                        mr: 1.5,
+                        mt: 0.2,
+                        flexShrink: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "9px", // Slightly smaller
+                        color: "white",
+                        fontWeight: "bold",
+                      }}>
+                        ✓
+                      </Box>
+                      <Typography variant="body2" sx={{
+                        fontWeight: 500,
+                        color: "#333",
+                        fontSize: { xs: "0.75rem", sm: "0.85rem" }, // Adjusted font size
+                        lineHeight: 1.3,
+                      }}>
+                        {feature}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+
+                {/* Button */}
+                <Button
+                  variant="contained"
+                  fullWidth
+                  size="small"
+                  sx={{
+                    bgcolor: plan.color,
+                    color: "white",
+                    fontWeight: 700,
+                    py: 1,
+                    borderRadius: 1,
+                    fontSize: { xs: "0.75rem", sm: "0.9rem" }, // Adjusted font size
+                    textTransform: 'none',
+                    mt: 'auto',
+                    '&:hover': {
+                      bgcolor: plan.color,
+                      opacity: 0.9,
+                    }
+                  }}
+                >
+                  {plan.buttonText}
+                </Button>
+              </Box>
+            </Card>
           </Fade>
-        </Container>
+        </Grid>
+      ))}
+    </Grid>
+
+    {/* Additional Info */}
+    <Fade in={true} timeout={1000}>
+      <Box sx={{ textAlign: "center", mt: 4 }}>
+        <Typography
+          variant="body2"
+          sx={{
+            color: "#666",
+            fontStyle: 'italic',
+            fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" },
+          }}
+        >
+          All plans include personalized attention and comprehensive support
+        </Typography>
       </Box>
+    </Fade>
+  </Container>
+</Box>
     </Box>
   );
 };
